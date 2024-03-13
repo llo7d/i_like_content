@@ -1,107 +1,150 @@
-# React Chrome Extension Boilerplate with Vite and TypeScript
+<img src="src/assets/img/icon-128.png" width="64"/>
 
-![GitHub license](https://img.shields.io/github/license/himalaya0035/chrome-extension-boilerplate-react-vite-typescript)
-![React](https://img.shields.io/badge/react-18.x-blue)
-![TypeScript](https://img.shields.io/badge/typescript-5.x-blue)
-![Tailwind CSS](https://img.shields.io/badge/tailwindcss-3.x-blue)
-![Vite](https://img.shields.io/badge/vite-4.x-blue)
+# Chrome Extension (MV3) Boilerplate with React 18 and Webpack 5
 
-This repository aims to provide an easy-to-use and minimilastic foundation for developing Chrome extensions using modern web technologies, including React for building the user interface, TypeScript for type-safe development, Tailwind CSS for effortless styling, and Vite as the module bundler for speedy development.
+[![npm](https://img.shields.io/npm/v/chrome-extension-boilerplate-react)](https://www.npmjs.com/package/chrome-extension-boilerplate-react)
+[![npm-download](https://img.shields.io/npm/dw/chrome-extension-boilerplate-react)](https://www.npmjs.com/package/chrome-extension-boilerplate-react)
+[![npm](https://img.shields.io/npm/dm/chrome-extension-boilerplate-react)](https://www.npmjs.com/package/chrome-extension-boilerplate-react)
 
-The focus is on providing a minimalistic and straightforward boilerplate for fast Chrome extension development, without unnecessary complexities.
+## Announcements
 
-## About
-
-As a developer, I struggled to find a comprehensive and straightforward resource to kickstart building Chrome extensions with React, Vite, and TypeScript. To bridge this gap, I decided to build it on my own. This project is born out of the frustration I faced and my desire to make the development process easier for fellow developers.
-
- Explore this minimalistic boilerplate that includes the necessary tools for Chrome extension development while keeping things simple and approachable.
-
+- Recently updated from **[React](https://reactjs.org)** ~~17~~ to **18**!
+- **_This boilerplate adopts [Manifest V3](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-overview/)!_**
+  - For V2 users, please check out the [manifest-v2](https://github.com/lxieyang/chrome-extension-boilerplate-react/tree/manifest-v2) branch, or use version [3.x](https://www.npmjs.com/package/chrome-extension-boilerplate-react/v/3.3.0).
+  - Check out the [Manifest V3 Migration Guide](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/).
+- Recently added [devtools](https://developer.chrome.com/docs/extensions/mv3/devtools/) Support! Thanks [GeekaholicLin](https://github.com/lxieyang/chrome-extension-boilerplate-react/issues/17)!
+- Recently updated from **[Webpack Dev Server](https://webpack.js.org/configuration/dev-server/)** ~~3.x~~ to **4.x** and **[Webpack](https://webpack.js.org/)** ~~4~~ to **5**!
+- Recently added [TypeScript](https://www.typescriptlang.org/) Support!
 
 ## Features
 
-- 🚀 Fast development with Vite's hot module replacement.
-- ⚙️ Dynamic manifest generation using the CRXJS vite plugin.
-- ⚛️ React-based user interface for the extension's popup, options page, and other components.
-- 🔧 TypeScript configuration for type-safe coding.
-- 🎨 Integrated with Tailwind CSS for flexible styling (Feel free to remove tailwind, if not required).
-- ⚡️ **Out-of-the-box support for background scripts, options pages, and content scripts. Customize them to fit your needs without the hassle of manual setup. Just start developing right away!**
+This is a basic Chrome Extensions boilerplate to help you write modular and modern Javascript code, load CSS easily and [automatic reload the browser on code changes](https://webpack.github.io/docs/webpack-dev-server.html#automatic-refresh).
 
-## Prerequisites
+This boilerplate is updated with:
 
-Before you begin, make sure you have the following installed:
+- [Chrome Extension Manifest V3](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-overview/)
+- [React 18](https://reactjs.org)
+- [Webpack 5](https://webpack.js.org/)
+- [Webpack Dev Server 4](https://webpack.js.org/configuration/dev-server/)
+- [React Refresh](https://www.npmjs.com/package/react-refresh)
+- [react-refresh-webpack-plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin)
+- [eslint-config-react-app](https://www.npmjs.com/package/eslint-config-react-app)
+- [Prettier](https://prettier.io/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-- Node.js (recommended version 16.x or higher)
-- npm (comes with Node.js)
+This boilerplate is heavily inspired by and adapted from [https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate](https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate), with additional support for React 18 features, Webpack 5, and Webpack Dev Server 4.
 
-## Getting Started
+Please open up an issue to nudge me to keep the npm packages up-to-date. FYI, it takes time to make different packages with different versions work together nicely.
 
-Follow these steps to get the boilerplate code up and running:
+## Installing and Running
 
-1. **Clone the repository:**
+### Procedures:
 
-    ```bash
-    git clone https://github.com/himalaya0035/chrome-extension-boilerplate-react-vite-typescript
-    ```
+1. Check if your [Node.js](https://nodejs.org/) version is >= **18**.
+2. Clone this repository.
+3. Change the package's `name`, `description`, and `repository` fields in `package.json`.
+4. Change the name of your extension on `src/manifest.json`.
+5. Run `npm install` to install the dependencies.
+6. Run `npm start`
+7. Load your extension on Chrome following:
+   1. Access `chrome://extensions/`
+   2. Check `Developer mode`
+   3. Click on `Load unpacked extension`
+   4. Select the `build` folder.
+8. Happy hacking.
 
-2. **Navigate to the project folder:**
+## Structure
 
-    ```bash
-    cd chrome-extension-boilerplate-react-vite-typescript
-    ```
+All your extension's code must be placed in the `src` folder.
 
-3. **Install dependencies:**
+The boilerplate is already prepared to have a popup, an options page, a background page, and a new tab page (which replaces the new tab page of your browser). But feel free to customize these.
 
-    ```bash
-    npm install
-    ```
+## TypeScript
 
-4. **Run the development server:**
+This boilerplate now supports TypeScript! The `Options` Page is implemented using TypeScript. Please refer to `src/pages/Options/` for example usages.
 
-    ```bash
-    npm run dev
-    ```
+## Webpack auto-reload and HRM
 
-    This command will start the development server using Vite, enabling hot module replacement and allowing you to see your changes in real.
-5. **Load the extension in Chrome:**
+To make your workflow much more efficient this boilerplate uses the [webpack server](https://webpack.github.io/docs/webpack-dev-server.html) to development (started with `npm start`) with auto reload feature that reloads the browser automatically every time that you save some file in your editor.
 
-    - Open the Chrome browser.
-    - Navigate to `chrome://extensions/`.
-    - Turn on the "Developer mode" toggle in the top-right corner.
-    - Click the "Load unpacked" button and select the `dist` folder inside your project directory.
+You can run the dev mode on other port if you want. Just specify the env var `port` like this:
 
-6. **Start Developing:**
+```
+$ PORT=6002 npm run start
+```
 
-    - The popup UI can be found in the `src/App.tsx` directory.
-    - Customize the manifest template in `src/manifest.json` and let CRXJS handle the dynamic manifest generation.
-    - The support for background scripts, options page, content scripts is already configured. Customise them in their respective folder.
+## Content Scripts
 
-7. **Build for Production:**
+Although this boilerplate uses the webpack dev server, it's also prepared to write all your bundles files on the disk at every code change, so you can point, on your extension manifest, to your bundles that you want to use as [content scripts](https://developer.chrome.com/extensions/content_scripts), but you need to exclude these entry points from hot reloading [(why?)](https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/issues/4#issuecomment-261788690). To do so you need to expose which entry points are content scripts on the `webpack.config.js` using the `chromeExtensionBoilerplate -> notHotReload` config. Look the example below.
 
-    When you're ready to publish your extension, create a production build by running:
+Let's say that you want use the `myContentScript` entry point as content script, so on your `webpack.config.js` you will configure the entry point and exclude it from hot reloading, like this:
 
-    ```bash
-    npm run build
-    ```
+```js
+{
+  …
+  entry: {
+    myContentScript: "./src/js/myContentScript.js"
+  },
+  chromeExtensionBoilerplate: {
+    notHotReload: ["myContentScript"]
+  }
+  …
+}
+```
 
-    The optimized files will be available in the `dist` folder. You can then package this folder to distribute your extension.
+and on your `src/manifest.json`:
 
-## Contributing
+```json
+{
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/*"],
+      "js": ["myContentScript.bundle.js"]
+    }
+  ]
+}
+```
 
-Contributions are welcome! If you encounter any issues or have ideas for improvements, feel free to open an issue or submit a pull request.
+## Intelligent Code Completion
 
-## License
+Thanks to [@hudidit](https://github.com/lxieyang/chrome-extension-boilerplate-react/issues/4)'s kind suggestions, this boilerplate supports chrome-specific intelligent code completion using [@types/chrome](https://www.npmjs.com/package/@types/chrome).
 
-This project is licensed under the [MIT License](LICENSE).
+## Packing
 
-## Support
+After the development of your extension run the command
 
-⭐️ If you find this boilerplate helpful, consider giving it a star on [GitHub](https://github.com/himalaya0035/chrome-extension-boilerplate-react-vite-typescript).
+```
+$ NODE_ENV=production npm run build
+```
+
+Now, the content of `build` folder will be the extension ready to be submitted to the Chrome Web Store. Just take a look at the [official guide](https://developer.chrome.com/webstore/publish) to more infos about publishing.
+
+## Secrets
+
+If you are developing an extension that talks with some API you probably are using different keys for testing and production. Is a good practice you not commit your secret keys and expose to anyone that have access to the repository.
+
+To this task this boilerplate import the file `./secrets.<THE-NODE_ENV>.js` on your modules through the module named as `secrets`, so you can do things like this:
+
+_./secrets.development.js_
+
+```js
+export default { key: '123' };
+```
+
+_./src/popup.js_
+
+```js
+import secrets from 'secrets';
+ApiCall({ key: secrets.key });
+```
+
+:point_right: The files with name `secrets.*.js` already are ignored on the repository.
+
+## Resources:
+
+- [Webpack documentation](https://webpack.js.org/concepts/)
+- [Chrome Extension documentation](https://developer.chrome.com/extensions/getstarted)
 
 ---
 
-Happy coding! If you have any questions or need further assistance, please don't hesitate to reach out.
-
-**Disclaimer:** This project was created by [Himalaya Gupta](https://github.com/himalaya0035/), for the community, to address the lack of comprehensive resources for building Chrome extensions with React, Vite, TypeScript, and Tailwind CSS. It is not officially endorsed by any of the mentioned technologies or organizations.
-
----
-
+Michael Xieyang Liu | [Website](https://lxieyang.github.io)
