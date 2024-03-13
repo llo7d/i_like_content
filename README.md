@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <img src="src/assets/img/icon-128.png" width="64"/>
 
 # Chrome Extension (MV3) Boilerplate with React 18 and Webpack 5
@@ -148,3 +149,10 @@ ApiCall({ key: secrets.key });
 ---
 
 Michael Xieyang Liu | [Website](https://lxieyang.github.io)
+=======
+Template from here:
+https://github.com/himalaya0035/chrome-extension-boilerplate-react-vite-typescript
+
+Switched to template from here:
+https://github.com/lxieyang/chrome-extension-boilerplate-react
+>>>>>>> cb25666333cf5b978f13a299e0bf949bf7207cef
