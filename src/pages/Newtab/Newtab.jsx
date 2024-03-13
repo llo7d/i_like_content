@@ -9,7 +9,7 @@ const Newtab = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/pages/Newtab/Newtab.js</code> and save to reload.
+          Quick yourself before you start browsing.
         </p>
         <a
           className="App-link"

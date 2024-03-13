@@ -4,8 +4,6 @@ import Greetings from '../../containers/Greetings/Greetings';
 import './Popup.css';
 
 const Popup = () => {
-
-  console.log("Does this show up?");
   const [url, setUrl] = useState('');
   const [description, setDescription] = useState('');
   const [blockedUrls, setBlockedUrls] = useState([]);
@@ -20,12 +18,35 @@ const Popup = () => {
   }, []);
 
   const handleSubmit = () => {
+
+    // Check if the URL is already blocked 
+    if (blockedUrls.includes(url)) {
+      alert('URL already blocked');
+      return;
+    }
+
+    // Inform the user has to include . it can just be google it has to be google.com
+    if (!url.includes('.')) {
+      alert('Invalid URL');
+      return;
+    }
+
+
     chrome.storage.sync.set({ [url]: description }, function () {
       // Update the state with the new URL
       setBlockedUrls(prevUrls => [...prevUrls, url]);
 
     });
   };
+
+  const handleRemoveUrl = (urlToRemove) => {
+    // Remove the URL from Chrome storage
+    chrome.storage.sync.remove(urlToRemove, function () {
+      // Update the state to reflect the change
+      setBlockedUrls(blockedUrls.filter(url => url !== urlToRemove));
+    });
+  };
+
 
   return (
     <div className="App">
@@ -36,9 +57,13 @@ const Popup = () => {
         <button onClick={handleSubmit}>Save</button>
         {/* Display the blocked URLs */}
         <ul>
-          {blockedUrls.map((blockedUrl, index) => (
-            <li key={index}>{blockedUrl}</li>
-          ))}
+          {blockedUrls.map((blockedUrl) => (
+            <div key={blockedUrl}>
+              {blockedUrl}
+              <button onClick={() => handleRemoveUrl(blockedUrl)}>x</button>
+            </div>
+          ))
+          }
         </ul>
       </header>
     </div>

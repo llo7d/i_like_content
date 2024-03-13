@@ -3,6 +3,7 @@ Add url in plugin & display the url in the plugin. ( )
 
 1.1
 Be able to console.log the chrome storage blocked urls ( )
+-> Just click inspect on the pop up bruh
 
 Goal 2:
 When that plugin is accessed, have a custom page that has a button "access" ( )

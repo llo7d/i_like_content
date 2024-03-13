@@ -1,4 +1,4 @@
-console.log("Broo??? New Tab");
+console.log("Background log");
 
 chrome.webRequest.onBeforeRequest.addListener(
     function (details) {
