@@ -51,7 +51,7 @@ const Popup = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <input type="text" value={url} onChange={e => setUrl(e.target.value)} placeholder="Website URL" />
         {/* <input type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Website Description" /> */}
         <button onClick={handleSubmit}>Save</button>

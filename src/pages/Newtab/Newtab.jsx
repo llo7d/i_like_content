@@ -11,15 +11,15 @@ const Newtab = () => {
         <p>
           Quick yourself before you start browsing.
         </p>
-        <a
+        {/* <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React!
-        </a>
-        <h6>The color of this paragraph is defined using SASS.</h6>
+        </a> */}
+        <h6>        Change subjects you want to learn about in setting pages.</h6>
       </header>
     </div>
   );
