@@ -8,20 +8,29 @@ const Popup = () => {
   const [description, setDescription] = useState('');
   const [blockedUrls, setBlockedUrls] = useState([]);
 
+  const [difficulty, setDifficulty] = useState('easy');
+
   useEffect(() => {
     // Load blocked URLs from Chrome storage when the component mounts
     chrome.storage.sync.get(null, function (items) {
       const urls = Object.keys(items);
       setBlockedUrls(urls);
-      console.log('Blocked URLs:', urls);
+      console.log('List URL:', urls);
+    });
+
+    chrome.storage.sync.get('difficulty', function (data) {
+      if (data.difficulty) {
+        setDifficulty(data.difficulty);
+      } else {
+        setDifficulty('easy');
+      }
     });
   }, []);
 
   const handleSubmit = () => {
-
-    // Check if the URL is already blocked 
+    // Check if the URL is already blocked
     if (blockedUrls.includes(url)) {
-      alert('URL already blocked');
+      alert('URL already in the list');
       return;
     }
 
@@ -31,28 +40,42 @@ const Popup = () => {
       return;
     }
 
-
-    chrome.storage.sync.set({ [url]: description }, function () {
-      // Update the state with the new URL
-      setBlockedUrls(prevUrls => [...prevUrls, url]);
-
-    });
+    chrome.storage.sync.set(
+      { [url]: description, difficulty: difficulty },
+      function () {
+        // Update the state with the new URL
+        setBlockedUrls((prevUrls) => [...prevUrls, url]);
+      }
+    );
   };
 
   const handleRemoveUrl = (urlToRemove) => {
     // Remove the URL from Chrome storage
     chrome.storage.sync.remove(urlToRemove, function () {
       // Update the state to reflect the change
-      setBlockedUrls(blockedUrls.filter(url => url !== urlToRemove));
+      setBlockedUrls(blockedUrls.filter((url) => url !== urlToRemove));
     });
   };
 
+  console.log(difficulty);
 
   return (
     <div className="App">
       <header className="App-header">
+        <select
+          value={difficulty}
+          onChange={(e) => setDifficulty(e.target.value)}
+        >
+          <option value="easy">Easy</option>
+          <option value="hard">Hard</option>
+        </select>{' '}
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <input type="text" value={url} onChange={e => setUrl(e.target.value)} placeholder="Website URL" />
+        <input
+          type="text"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          placeholder="Website URL"
+        />
         {/* <input type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Website Description" /> */}
         <button onClick={handleSubmit}>Save</button>
         {/* Display the blocked URLs */}
@@ -62,8 +85,7 @@ const Popup = () => {
               {blockedUrl}
               <button onClick={() => handleRemoveUrl(blockedUrl)}>x</button>
             </div>
-          ))
-          }
+          ))}
         </ul>
       </header>
     </div>

@@ -7,3 +7,9 @@ Be able to console.log the chrome storage blocked urls ( )
 
 Goal 2:
 When that plugin is accessed, have a custom page that has a button "access" ( )
+
+
+Settings page:
+- Difficulty ( Easy / Hard )
+- Dropdown of catagories (Javascript Basics, React Basics, Mascine Learning Basics etc..)
+- 
