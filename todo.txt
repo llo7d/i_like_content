@@ -13,3 +13,6 @@ Settings page:
 - Difficulty ( Easy / Hard )
 - Dropdown of catagories (Javascript Basics, React Basics, Mascine Learning Basics etc..)
 - 
+
+
+On each new tab open, have a question based on chrome settings ( easy hard etc..)

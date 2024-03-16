@@ -10,17 +10,6 @@
   background-color: #282c34;
 }
 
-.App-logo {
-  height: 30vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   height: 100%;
   display: flex;
@@ -31,15 +20,54 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Container for the toggle switch */
+.toggle-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* The actual toggle switch */
+.toggle-switch-checkbox {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  opacity: 0;
+  z-index: 2;
+}
+
+.toggle-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ca2222;
+  transition: .4s;
+  z-index: 1;
+}
+
+.toggle-switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  transition: .4s;
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-slider {
+  background-color: #2ab934;
+}
+
+.toggle-switch-checkbox:focus + .toggle-switch-slider {
+  box-shadow: 0 0 1px #2ab934;
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-slider:before {
+  transform: translateX(20px);
 }

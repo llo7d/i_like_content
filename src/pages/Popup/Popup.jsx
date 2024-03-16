@@ -7,8 +7,9 @@ const Popup = () => {
   const [url, setUrl] = useState('');
   const [description, setDescription] = useState('');
   const [blockedUrls, setBlockedUrls] = useState([]);
-
   const [difficulty, setDifficulty] = useState('easy');
+  const [catagory, setCatagory] = useState('javascript');
+  const [isPluginActive, setIsPluginActive] = useState(true);
 
   useEffect(() => {
     // Load blocked URLs from Chrome storage when the component mounts
@@ -62,12 +63,30 @@ const Popup = () => {
   return (
     <div className="App">
       <header className="App-header">
+        <div className="toggle-container">
+          <input
+            type="checkbox"
+            id="toggle"
+            className="toggle-switch-checkbox"
+            checked={isPluginActive}
+            onChange={(e) => setIsPluginActive(e.target.checked)}
+          />
+          <label className="toggle-switch-slider" htmlFor="toggle"></label>
+        </div>
         <select
           value={difficulty}
           onChange={(e) => setDifficulty(e.target.value)}
         >
           <option value="easy">Easy</option>
           <option value="hard">Hard</option>
+        </select>{' '}
+        <select
+          value={difficulty}
+          onChange={(e) => setCatagory(e.target.value)}
+        >
+          <option value="javascript">Javascript</option>
+          <option value="typescript">Typescript</option>
+          <option value="python">Python</option>
         </select>{' '}
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <input
@@ -77,7 +96,7 @@ const Popup = () => {
           placeholder="Website URL"
         />
         {/* <input type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Website Description" /> */}
-        <button onClick={handleSubmit}>Save</button>
+        <button onClick={handleSubmit}>Add</button>
         {/* Display the blocked URLs */}
         <ul>
           {blockedUrls.map((blockedUrl) => (
