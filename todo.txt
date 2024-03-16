@@ -1,18 +1,44 @@
 Goal 1:
-Add url in plugin & display the url in the plugin. ( )
+Add url in plugin & display the url in the plugin. ( X )
 
 1.1
-Be able to console.log the chrome storage blocked urls ( )
+Be able to console.log the chrome storage blocked urls ( X )
 -> Just click inspect on the pop up bruh
 
 Goal 2:
 When that plugin is accessed, have a custom page that has a button "access" ( )
 
 
+Main idea of the plugin: 
+
+1.
+People add a list of websites, once they visit them they need to answer a question to enter it
+
+2.
+On each new tab open or change of a domain you get a oppertunity to answer a question, but you can just ignore it.
+
+3. Only domain switches (because new tab is basicly a domain switch )
+Each time of change of domain or every 3-5 domain switches (user can choose?)
+
+4. 
+Select how often you want to be questene ( new tab, domain change, every 10 minutes etc.. )
+Then a quizz shows up ( Slider from 1-10 of how often ) a counter that tracks, new tabs opened, how many times domain changes )
+
+Maybe that is too much and too often?
+
+5.
+Just a simple add websites & description and when you visit them, you simply click "enter" 
+just to double check if your not on autopilot
+
+
+
+
+
+
+More specificly:
+
 Settings page:
 - Difficulty ( Easy / Hard )
 - Dropdown of catagories (Javascript Basics, React Basics, Mascine Learning Basics etc..)
 - 
 
-
-On each new tab open, have a question based on chrome settings ( easy hard etc..)
