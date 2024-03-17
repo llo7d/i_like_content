@@ -14,6 +14,8 @@ Main idea of the plugin:
 1.
 People add a list of websites, once they visit them they need to answer a question to enter it
 
+Choose All domains / Specific domains?
+
 2.
 On each new tab open or change of a domain you get a oppertunity to answer a question, but you can just ignore it.
 
