@@ -18,12 +18,10 @@ const Popup = () => {
       setBlockedUrls(urls);
       console.log('List URL:', urls);
     });
-
-    chrome.storage.sync.get('difficulty', function (data) {
-      if (data.difficulty) {
-        setDifficulty(data.difficulty);
-      } else {
-        setDifficulty('easy');
+    // Check for changes in domain and if change print "Something changed"
+    chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+      if (changeInfo.url) {
+        console.log('Something changed');
       }
     });
   }, []);
@@ -58,7 +56,13 @@ const Popup = () => {
     });
   };
 
-  console.log(difficulty);
+  // // On everydomain change, log something happned
+  // chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  //   console.log('Domain changed');
+  //   console.log(tab.url);
+  //   console.log(tabId);
+  //   console.log(changeInfo);
+  // });
 
   return (
     <div className="App">
@@ -84,6 +88,8 @@ const Popup = () => {
           value={difficulty}
           onChange={(e) => setCatagory(e.target.value)}
         >
+          <option value="javascript">Fries</option>
+
           <option value="javascript">Javascript</option>
           <option value="typescript">Typescript</option>
           <option value="python">Python</option>

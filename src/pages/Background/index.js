@@ -1,21 +1,9 @@
 console.log("Background log");
 
-chrome.webRequest.onBeforeRequest.addListener(
-    function (details) {
-        return new Promise((resolve, reject) => {
-            chrome.storage.sync.get([details.url], function (result) {
-                if (result[details.url]) {
-                    if (window.confirm('Are you sure you want to visit this website?')) {
-                        resolve({ cancel: false });
-                    } else {
-                        resolve({ cancel: true });
-                    }
-                } else {
-                    resolve({ cancel: false });
-                }
-            });
-        });
-    },
-    { urls: ["<all_urls>"] },
-    ["blocking"]
-);
+// On everydomain change, log something happned
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  console.log("Domain changed");
+  console.log(tab.url);
+  console.log(tabId);
+  console.log(changeInfo);
+});
