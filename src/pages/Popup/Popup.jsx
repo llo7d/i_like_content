@@ -10,6 +10,7 @@ const Popup = () => {
   const [difficulty, setDifficulty] = useState('easy');
   const [catagory, setCatagory] = useState('javascript');
   const [isPluginActive, setIsPluginActive] = useState(true);
+  const [domainChanges, setDomainChanges] = useState(0);
 
   useEffect(() => {
     // Load blocked URLs from Chrome storage when the component mounts
@@ -17,6 +18,10 @@ const Popup = () => {
       const urls = Object.keys(items);
       setBlockedUrls(urls);
       console.log('List URL:', urls);
+    });
+
+    chrome.storage.local.get(['domainChanges'], function (result) {
+      setDomainChanges(result.domainChanges || 0);
     });
   }, []);
 
@@ -50,9 +55,32 @@ const Popup = () => {
     });
   };
 
+  const handleSliderChange = (event) => {
+    const value = event.target.value;
+    setDomainChanges(value);
+
+    // Store the domainChanges inside chrome storage
+    chrome.storage.local.set({ domainChanges: value });
+
+    //log local storage value
+    chrome.storage.local.get(['domainChanges'], function (result) {
+      console.log('Value currently is ' + result.domainChanges);
+    });
+  };
+
   return (
     <div className="App">
       <header className="App-header">
+        <label htmlFor="domainChanges">Choose how often?</label>
+        <input
+          id="domainChanges"
+          type="range"
+          min="0"
+          max="15"
+          value={domainChanges}
+          onChange={handleSliderChange}
+        />
+        <p>You selected: {domainChanges}</p>
         <div className="toggle-container">
           <input
             type="checkbox"
