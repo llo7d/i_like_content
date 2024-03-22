@@ -4,7 +4,7 @@ let domainChangeCounter = 0;
 let domainChanges = 10;
 
 // Store the domainChangeCounter inside chrome storage
-chrome.storage.local.get(['domainChanges'], function(result) {
+chrome.storage.local.get(['domainChanges'], function (result) {
   // If the domainChanges value is already set, use it, if not set it to 10
   if (result.domainChanges) {
     domainChanges = result.domainChanges;
@@ -12,11 +12,11 @@ chrome.storage.local.get(['domainChanges'], function(result) {
   chrome.storage.local.set({ domainChanges: domainChanges });
   console.log("Value currently is " + domainChanges);
 
-  
+
 });
 
 // Listen for changes to Chrome storage
-chrome.storage.onChanged.addListener(function(changes, namespace) {
+chrome.storage.onChanged.addListener(function (changes, namespace) {
   if (changes.domainChanges) {
     domainChanges = changes.domainChanges.newValue;
     console.log(domainChanges);

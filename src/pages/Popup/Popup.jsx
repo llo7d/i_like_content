@@ -109,23 +109,23 @@ const Popup = () => {
           <option value="python">Python</option>
         </select>{' '}
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <input
+        {/* <input
           type="text"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="Website URL"
-        />
+        /> */}
         {/* <input type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Website Description" /> */}
         <button onClick={handleSubmit}>Add</button>
         {/* Display the blocked URLs */}
-        <ul>
+        {/* <ul>
           {blockedUrls.map((blockedUrl) => (
             <div key={blockedUrl}>
               {blockedUrl}
               <button onClick={() => handleRemoveUrl(blockedUrl)}>x</button>
             </div>
           ))}
-        </ul>
+        </ul> */}
       </header>
     </div>
   );

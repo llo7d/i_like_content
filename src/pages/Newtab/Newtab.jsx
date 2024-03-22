@@ -7,9 +7,9 @@ const Newtab = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
-          Quick yourself before you start browsing.
+          Quiz yourself before you start browsing.
         </p>
         {/* <a
           className="App-link"
