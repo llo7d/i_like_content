@@ -68,6 +68,19 @@ const Popup = () => {
     });
   };
 
+  function mapDomainChangesToString(domainChanges) {
+    if (domainChanges >= 0 && domainChanges <= 5) {
+      return 'often';
+    } else if (domainChanges > 5 && domainChanges <= 10) {
+      return 'somewhat';
+    } else if (domainChanges > 10 && domainChanges <= 15) {
+      return 'rarely';
+    } else {
+      return 'invalid';
+    }
+  }
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -80,7 +93,8 @@ const Popup = () => {
           value={domainChanges}
           onChange={handleSliderChange}
         />
-        <p>You selected: {domainChanges}</p>
+
+        <p>You selected: {mapDomainChangesToString(domainChanges)}</p>
         <div className="toggle-container">
           <input
             type="checkbox"
@@ -116,7 +130,7 @@ const Popup = () => {
           placeholder="Website URL"
         /> */}
         {/* <input type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Website Description" /> */}
-        <button onClick={handleSubmit}>Add</button>
+        {/* <button onClick={handleSubmit}>Add</button> */}
         {/* Display the blocked URLs */}
         {/* <ul>
           {blockedUrls.map((blockedUrl) => (
