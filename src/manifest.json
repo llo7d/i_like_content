@@ -12,16 +12,11 @@
   },
   "permissions": [
     "webRequest",
-    "webRequestBlocking",
-    "<all_urls>",
     "storage",
     "webNavigation",
     "tabs",
     "activeTab"
   ],
-  "chrome_url_overrides": {
-    "newtab": "newtab.html"
-  },
   "icons": {
     "128": "icon-128.png"
   },
@@ -46,9 +41,12 @@
       "resources": [
         "content.styles.css",
         "icon-128.png",
-        "icon-34.png"
+        "icon-34.png",
+        "newtab.html"
       ],
-      "matches": []
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ]
 }

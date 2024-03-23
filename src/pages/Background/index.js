@@ -15,7 +15,7 @@ chrome.storage.local.get(['domainChanges'], function (result) {
 
 });
 
-// Listen for changes to Chrome storage
+// Listen for changes to Chrome storage to update the domainChanges value if it changes
 chrome.storage.onChanged.addListener(function (changes, namespace) {
   if (changes.domainChanges) {
     domainChanges = changes.domainChanges.newValue;
@@ -38,4 +38,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   }
 });
 
-
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.url) {
+    chrome.tabs.update(tabId, { url: chrome.runtime.getURL('newtab.html') });
+  }
+});
