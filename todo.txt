@@ -1,8 +1,14 @@
 Todo:
-- Test tracking of domain changes with counter ()
-- When domain changed, show a custom page with button "enter" and then they may continue to their page ( )
-- 
+- Test tracking of domain changes with counter ( )
 
+- When domain changed, show a custom page  ( X )
+-> with button "enter" and then they may continue to their page they were going ( X )
+-> now with the counter ( X )
+
+
+Some bugs:
+- Seems like its storing one url after not before ( really visable with shorts ) 
+-> I think I fixed it. ( X )
 
 
 

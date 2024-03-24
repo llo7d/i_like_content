@@ -24,22 +24,34 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+
   if (changeInfo.url) {
     domainChangeCounter++;
 
     console.log(domainChangeCounter);
     console.log("Domainchanges: ", domainChanges);
 
+
+    // If domain name ends with /newtab.htm ignore it
+    if (changeInfo.url.includes('newtab.html')) {
+      return;
+    }
+
     // If the domainChangeCounter reaches the domainChanges value, reset the counter
     if (domainChangeCounter >= domainChanges) {
       domainChangeCounter = 0;
-      console.log("Domainchanges reset");
+      chrome.tabs.update(tabId, { url: chrome.runtime.getURL('newtab.html') });
     }
+
+    // Store the URL inside chrome storage
+    chrome.storage.local.set({ url: changeInfo.url });
+
+
+    // grab the chrome storage and log it
+    chrome.storage.local.get('url', (data) => {
+      console.log(data.url);
+    });
+
   }
 });
 
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.url) {
-    chrome.tabs.update(tabId, { url: chrome.runtime.getURL('newtab.html') });
-  }
-});
