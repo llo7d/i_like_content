@@ -1,5 +1,7 @@
 Todo:
 
+- Make on/off button work & with the slider & other buttons ( )
+
 - Log supabase with .env file or somehow ( )
 - When domain changed, show a custom page  ( X )
 -> with button "enter" and then they may continue to their page they were going ( X )
@@ -10,7 +12,6 @@ Todo:
 -> What type of quizes? ( )
 
 - Allower user to choose the type of quiz ( )?
-
 
 
 

@@ -1,7 +1,13 @@
-// console.log("Background log");
+// // Check ifisPluginActive is true or false if its false return
+// chrome.storage.local.get(['isPluginActive'], function (result) {
+//   if (result.isPluginActive === false) {
+//     return;
+//   }
+// });
 
 let domainChangeCounter = 0;
 let domainChanges = 10;
+
 
 // Store the domainChangeCounter inside chrome storage
 chrome.storage.local.get(['domainChanges'], function (result) {
@@ -11,6 +17,13 @@ chrome.storage.local.get(['domainChanges'], function (result) {
   }
   chrome.storage.local.set({ domainChanges: domainChanges });
   console.log("Value currently is " + domainChanges);
+
+  // Grab the activePlugin from chrome storage , If the activPlugin value is already set, use it, if not set it to True
+  chrome.storage.local.get(['isPluginActive'], function (result) {
+    if (result.isPluginActive === undefined) {
+      chrome.storage.local.set({ isPluginActive: true });
+    }
+  });
 
 
 });
@@ -23,7 +36,15 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
   }
 });
 
+
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+
+  // chrome.storage.local.get('isPluginActive', (data) => {
+  //   // If the plugin is not active, return
+  //   if (!data.isPluginActive) {
+  //     return;
+  //   }
+  // });
 
   if (changeInfo.url) {
     domainChangeCounter++;

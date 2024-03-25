@@ -13,15 +13,10 @@ const Popup = () => {
   const [domainChanges, setDomainChanges] = useState(0);
 
   useEffect(() => {
-    // Load blocked URLs from Chrome storage when the component mounts
-    chrome.storage.sync.get(null, function (items) {
-      const urls = Object.keys(items);
-      setBlockedUrls(urls);
-      console.log('List URL:', urls);
-    });
 
-    chrome.storage.local.get(['domainChanges'], function (result) {
-      setDomainChanges(result.domainChanges || 0);
+    // Load isPluginActive from Chrome storage
+    chrome.storage.local.get(['isPluginActive'], function (result) {
+      setIsPluginActive(result.isPluginActive);
     });
   }, []);
 
@@ -54,6 +49,16 @@ const Popup = () => {
       setBlockedUrls(blockedUrls.filter((url) => url !== urlToRemove));
     });
   };
+
+  const handleIsPluginActiveChange = (event) => {
+
+    setIsPluginActive(event.target.checked);
+    chrome.storage.local.set({ isPluginActive: event.target.checked });
+
+    console.log('isPluginActive: ', event.target.checked);
+
+  };
+
 
   const handleSliderChange = (event) => {
     const value = event.target.value;
@@ -101,7 +106,7 @@ const Popup = () => {
             id="toggle"
             className="toggle-switch-checkbox"
             checked={isPluginActive}
-            onChange={(e) => setIsPluginActive(e.target.checked)}
+            onChange={(e) => handleIsPluginActiveChange(e)}
           />
           <label className="toggle-switch-slider" htmlFor="toggle"></label>
         </div>
