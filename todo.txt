@@ -1,11 +1,18 @@
 Todo:
 
+- Log supabase with .env file or somehow ( )
 - When domain changed, show a custom page  ( X )
 -> with button "enter" and then they may continue to their page they were going ( X )
 -> now with the counter ( X )
 - Invert the slider ( )
 - Make on/off button work ( )
 - Display a question from SUPABASE ( )
+-> What type of quizes? ( )
+
+- Allower user to choose the type of quiz ( )?
+
+
+
 
 Some bugs:
 - Seems like its storing one url after not before ( really visable with shorts ) 
@@ -13,7 +20,7 @@ Some bugs:
 
 - After the new tab opens "That also counts as a new tab" , so it should not be counted as a new tab. ( )
 
-
+- Pause for an hour button or something. ( )
 
 - Make figma design wireframe ( )
 

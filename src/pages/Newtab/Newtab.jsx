@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import logo from '../../assets/img/logo.svg';
 import './Newtab.css';
 import './Newtab.scss';
+import React, { useState, useEffect } from 'react';
+import { createClient } from '@supabase/supabase-js'
+
 
 const Newtab = () => {
+
+
+  // const supabase = createClient(
+  //   env.REACT_APP_SUPABASE_URL,
+  //   env.REACT_APP_SUPABASE_ANON_KEY
+  // );
+
+  // console.log(supabase);
 
   const [url, setUrl] = useState('');
 
