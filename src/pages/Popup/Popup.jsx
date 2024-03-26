@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../../assets/img/logo.svg';
-import Greetings from '../../containers/Greetings/Greetings';
 import './Popup.css';
 
 const Popup = () => {
-  const [url, setUrl] = useState('');
-  const [description, setDescription] = useState('');
-  const [blockedUrls, setBlockedUrls] = useState([]);
-  const [difficulty, setDifficulty] = useState('easy');
-  const [catagory, setCatagory] = useState('javascript');
+  const [difficulty, setDifficulty] = useState('');
+  const [catagory, setCatagory] = useState('');
   const [isPluginActive, setIsPluginActive] = useState(true);
   const [domainChanges, setDomainChanges] = useState(0);
 
   useEffect(() => {
 
-    // Load isPluginActive from Chrome storage
-    chrome.storage.local.get(['isPluginActive'], function (result) {
-      setIsPluginActive(result.isPluginActive);
+    // Load and set defaults
+    chrome.storage.local.get(['difficulty', 'catagory', 'isPluginActive', 'domainChanges'], function (result) {
+      setDifficulty(result.difficulty ?? 'easy');
+      setCatagory(result.catagory ?? 'javascript');
+      setIsPluginActive(result.isPluginActive ?? true);
+      setDomainChanges(result.domainChanges ?? 0);
     });
+
+
   }, []);
 
   const handleSubmit = () => {
@@ -67,19 +67,32 @@ const Popup = () => {
     // Store the domainChanges inside chrome storage
     chrome.storage.local.set({ domainChanges: value });
 
-    //log local storage value
-    chrome.storage.local.get(['domainChanges'], function (result) {
-      console.log('Value currently is ' + result.domainChanges);
-    });
   };
 
+  const handleSetDifficulty = (event) => {
+    setDifficulty(event.target.value);
+
+    // Store the difficulty inside chrome storage
+    chrome.storage.local.set({ difficulty: event.target.value });
+
+  };
+
+  const handleSetCatagory = (event) => {
+    setCatagory(event.target.value);
+
+    // Store the catagory inside chrome storage
+    chrome.storage.local.set({ catagory: event.target.value });
+
+  };
+
+
   function mapDomainChangesToString(domainChanges) {
-    if (domainChanges >= 0 && domainChanges <= 5) {
-      return 'often';
-    } else if (domainChanges > 5 && domainChanges <= 10) {
-      return 'somewhat';
-    } else if (domainChanges > 10 && domainChanges <= 15) {
+    if (domainChanges >= 50 && domainChanges <= 60) {
       return 'rarely';
+    } else if (domainChanges >= 30 && domainChanges < 50) {
+      return 'somewhat';
+    } else if (domainChanges >= 10 && domainChanges < 30) {
+      return 'often';
     } else {
       return 'invalid';
     }
@@ -93,13 +106,14 @@ const Popup = () => {
         <input
           id="domainChanges"
           type="range"
-          min="0"
-          max="15"
+          min="10"
+          max="60"
           value={domainChanges}
           onChange={handleSliderChange}
         />
 
         <p>You selected: {mapDomainChangesToString(domainChanges)}</p>
+
         <div className="toggle-container">
           <input
             type="checkbox"
@@ -108,43 +122,29 @@ const Popup = () => {
             checked={isPluginActive}
             onChange={(e) => handleIsPluginActiveChange(e)}
           />
-          <label className="toggle-switch-slider" htmlFor="toggle"></label>
+          <label className="toggle-switch-slider" htmlFor="toggle">
+            <span className="toggle-switch-slider--text">
+              {isPluginActive ? 'On' : 'Off'}
+            </span>
+          </label>
         </div>
         <select
           value={difficulty}
-          onChange={(e) => setDifficulty(e.target.value)}
+          onChange={(e) => handleSetDifficulty(e)}
         >
           <option value="easy">Easy</option>
           <option value="hard">Hard</option>
         </select>{' '}
         <select
-          value={difficulty}
-          onChange={(e) => setCatagory(e.target.value)}
+          value={catagory}
+          onChange={(e) => handleSetCatagory(e)}
         >
-          <option value="javascript">Fries</option>
-
           <option value="javascript">Javascript</option>
           <option value="typescript">Typescript</option>
           <option value="python">Python</option>
+          <option value="react">React</option>
+
         </select>{' '}
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        {/* <input
-          type="text"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          placeholder="Website URL"
-        /> */}
-        {/* <input type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder="Website Description" /> */}
-        {/* <button onClick={handleSubmit}>Add</button> */}
-        {/* Display the blocked URLs */}
-        {/* <ul>
-          {blockedUrls.map((blockedUrl) => (
-            <div key={blockedUrl}>
-              {blockedUrl}
-              <button onClick={() => handleRemoveUrl(blockedUrl)}>x</button>
-            </div>
-          ))}
-        </ul> */}
       </header>
     </div>
   );
