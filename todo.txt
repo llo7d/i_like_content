@@ -1,19 +1,14 @@
 Todo:
 
-- Make on/off button work & with the slider & other buttons ( )
+- Make on/off button work & with the slider & other buttons ( X ) 
+- Display a question from SUPABASE ( X )
+-> Decide how query and then store the data. In chrome storage or request them each time? ( )
 
-- Log supabase with .env file or somehow ( )
-- When domain changed, show a custom page  ( X )
--> with button "enter" and then they may continue to their page they were going ( X )
--> now with the counter ( X )
-- Invert the slider ( )
-- Make on/off button work ( )
-- Display a question from SUPABASE ( )
--> What type of quizes? ( )
+
 
 - Questions repeat on/off button ( )
 - Allower user to choose the type of quiz ( )?
-- Exclude some urls from count? ( )
+- Exclude some urls to not count to count? ( )
 
 
 
