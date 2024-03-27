@@ -143,6 +143,7 @@ const Popup = () => {
           <option value="typescript">Typescript</option>
           <option value="python">Python</option>
           <option value="react">React</option>
+          <options value="techy">Techincal</options>
 
         </select>{' '}
       </header>

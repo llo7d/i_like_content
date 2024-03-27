@@ -12,10 +12,6 @@ const Newtab = () => {
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   console.log(supabase);
-  // const supabase = createClient(
-  //   SUPABASE_URL,
-  //   SUPABASE_ANON_KEY
-  // );
 
   // console.log(supabase);
 
@@ -23,6 +19,27 @@ const Newtab = () => {
 
   //Store the URL from chrome.storage using useEffect
   useEffect(() => {
+
+    // Grab the questions from the database, ignore if id is 1,5
+    const fetchQuestions = async () => {
+
+      let { data: questions, error } = await supabase
+        .from('questions')
+        .select('*')
+        .not('id', 'in', [1, 5]);
+
+
+      console.log(questions);
+
+      if (error) console.log('error', error);
+
+    }
+
+    fetchQuestions();
+
+
+
+
     chrome.storage.local.get('url', (data) => {
       // Remove https:// from the URL and remove .com and everything after .com
       const urlObject = new URL(data.url);

@@ -11,7 +11,9 @@ Todo:
 - Display a question from SUPABASE ( )
 -> What type of quizes? ( )
 
+- Questions repeat on/off button ( )
 - Allower user to choose the type of quiz ( )?
+- Exclude some urls from count? ( )
 
 
 
