@@ -2,19 +2,14 @@ import './Newtab.css';
 import './Newtab.scss';
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js'
-// import secrets from '../../../secrets.development.js';
+import secrets from '../../../secrets.development.js';
 
 
 const Newtab = () => {
 
-  const SUPABASE_URL = "https://vdoqyjbnpwqkafxxssbb.supabase.co"
-  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkb3F5amJucHdxa2FmeHhzc2JiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTEzNzIyMTUsImV4cCI6MjAyNjk0ODIxNX0.luuvoKY-udlAaD83Qf5pElsetmXVwPetr6C-v5gpjDgT"
-
-
-  // const { SUPABASE_URL, SUPABASE_ANON_KEY } = secrets;
+  const { SUPABASE_URL, SUPABASE_ANON_KEY } = secrets;
 
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
 
   console.log(supabase);
   // const supabase = createClient(
