@@ -6,6 +6,7 @@ Todo:
 
 
 
+
 - Questions repeat on/off button ( )
 - Allower user to choose the type of quiz ( )?
 - Exclude some urls to not count to count? ( )

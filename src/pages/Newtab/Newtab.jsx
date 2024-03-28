@@ -7,6 +7,11 @@ import secrets from '../../../secrets.development.js';
 
 const Newtab = () => {
 
+  const [questions, setQuestions] = useState([]);
+  const [seenQuestions, setSeenQuestions] = useState([]);
+  const [url, setUrl] = useState('');
+
+
   const { SUPABASE_URL, SUPABASE_ANON_KEY } = secrets;
 
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -15,7 +20,6 @@ const Newtab = () => {
 
   // console.log(supabase);
 
-  const [url, setUrl] = useState('');
 
   //Store the URL from chrome.storage using useEffect
   useEffect(() => {
@@ -23,21 +27,24 @@ const Newtab = () => {
     // Grab the questions from the database, ignore if id is 1,5
     const fetchQuestions = async () => {
 
-      let { data: questions, error } = await supabase
+      let { data: fetchedQuestions, error } = await supabase
         .from('questions')
         .select('*')
-        .not('id', 'in', [1, 5]);
-
+        .not('id', 'eq', 1)
+        .not('id', 'eq', 5);
 
       console.log(questions);
 
       if (error) console.log('error', error);
 
+
+      setQuestions(fetchedQuestions);
+      setSeenQuestions(fetchedQuestions.map(question => question.id));
+
+
     }
 
     fetchQuestions();
-
-
 
 
     chrome.storage.local.get('url', (data) => {
@@ -77,6 +84,17 @@ const Newtab = () => {
         </h6>
         <button onClick={handleClick}>Enter</button>
       </header>
+
+      <div>
+        {questions.length > 0 && (
+          <div>
+            <h1>{questions[0].question}</h1>
+            {questions[0].options.map((option, index) => (
+              <p key={index}>{option}</p>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
