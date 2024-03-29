@@ -4,7 +4,7 @@ Todo:
 - Display a question from SUPABASE ( X )
 -> Decide how query and then store the data. In chrome storage or request them each time? ( )
 
-
+- This is not good, comitting trash just for square.
 
 
 - Questions repeat on/off button ( )
