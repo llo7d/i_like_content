@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js'
 import secrets from '../../../secrets.development.js';
 
-
 const Newtab = () => {
 
 
@@ -12,12 +11,17 @@ const Newtab = () => {
   const [seenQuestions, setSeenQuestions] = useState([1, 2, 9]);
   const [url, setUrl] = useState('');
 
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [correctAnswer, setCorrectAnswer] = useState(null);
+
 
   const { SUPABASE_URL, SUPABASE_ANON_KEY } = secrets;
 
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   // console.log(supabase);
+
+  console.log(question);
 
 
   const fetchUnseenQuestion = async () => {
@@ -41,6 +45,20 @@ const Newtab = () => {
 
   }
 
+  const handleClickOption = (option) => {
+    console.log('Option clicked:', option);
+    setSelectedOption(option);
+
+    if (option === question.answer) {
+      console.log('Correct answer selected');
+      setCorrectAnswer(option);
+
+      setTimeout(() => {
+        chrome.tabs.goBack();
+      }, 2000);
+    }
+  };
+
   //Store the URL from chrome.storage using useEffect
   useEffect(() => {
 
@@ -60,20 +78,27 @@ const Newtab = () => {
       // Set the state
       setUrl(hostname);
     });
-  }, []);
+  },
+    []
+  );
 
   const handleClick = () => {
-    // Get the stored URL from chrome.storage
-    chrome.storage.local.get('url', (data) => {
+    // // Get the stored URL from chrome.storage
+    // chrome.storage.local.get('url', (data) => {
 
-      console.log(data.url);
-      // Redirect the from the current active tab to the stored URL
-      chrome.tabs.update({ url: data.url });
-    });
+    //   console.log(data.url);
+    //   // Redirect the from the current active tab to the stored URL
+    //   chrome.tabs.update({ url: data.url });
+
+    //   // Redirect to the last page the user visited
+    // });
+
+    chrome.tabs.goBack();
+
   };
 
-
   return (
+
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
@@ -84,13 +109,19 @@ const Newtab = () => {
           Change subjects you want to learn about in setting pages.
         </h6>
         <button onClick={handleClick}>Enter</button>
-        <h1>{question.question}</h1>
+        <h2>{question.question}</h2>
         {question.options.map((option, index) => (
-          <p key={index}>{option}</p>
+          <button
+            key={index}
+            onClick={() => handleClickOption(option)}>
+            {/* style={{ backgroundColor: option === correctAnswer ? 'green' : 'initial' }}> */}
+            {option}
+          </button>
         ))}
       </header>
 
     </div>
+
   );
 };
 

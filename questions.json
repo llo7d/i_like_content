@@ -1,0 +1,21 @@
+// 
+// example of a json object
+//
+{
+    "id": 5, // Ignore this field
+    "created_at": "2024-03-27T19:31:58.273587+00:00", // Ignore this field
+    "subject": "Python", // Accepted: Python, JavaScript, Java, C++
+    "difficulty": "easy", // Accepted: easy,hard
+    "question": {
+        "options": [
+            "Guido van Rossum",
+            "Dennis Ritchie",
+            "James Gosling",
+            "Bjarne Stroustrup"
+        ],
+        "question": "Who is the creator of Python programming language?",
+        "correctAnswer": "Guido van Rossum" // Must be same as in options array
+    },
+    "your_name": "", // Your name, will be used as "question by" in the app
+    "your_github_url": "" // Your github url
+}

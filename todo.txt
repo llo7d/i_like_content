@@ -1,32 +1,23 @@
 Todo:
 
-- Make on/off button work & with the slider & other buttons ( X ) 
-- Display a question from SUPABASE ( X )
--> Decide how query and then store the data. In chrome storage or request them each time? ( )
-
-- This is not good, comitting trash just for square.
-
-
-- Questions repeat on/off button ( )
-- Allower user to choose the type of quiz ( )?
-- Exclude some urls to not count to count? ( )
+- Create wireframe + send to ui designer for redesign ()
+- Test request questions based on the seen ids in chrome storage ( )
+- Test request question based on the type of quiz & difficulty ( )
+- Test exclude urls ( )
 
 
 
-Some bugs:
-- Seems like its storing one url after not before ( really visable with shorts ) 
--> I think I fixed it. ( X )
 
-- After the new tab opens "That also counts as a new tab" , so it should not be counted as a new tab. ( )
-
-- Pause for an hour button or something. ( )
-
+Ideas:
 - Make figma design wireframe ( )
+- See if the question is correct or not, turn green if is and red if not, allow only clicking once, redirect after ( )
+- Store the seen ids in chrome storage and request based on that (  )
+- Allower user to choose the type of quiz ( ) 
+- Exclude urls ( )
+- Exclude urls from the same domain ( )
+- After the new tab opens "That also counts as a new tab" , so it should not be counted as a new tab. ( )
+- Pause for an hour button or something. ( )
+- Questions can repeat on/off button ( )
 
-Main idea of the plugin: 
-- Select how often you want to be question ( Slider from 1-10  )
-- Dropdown of catagories (Javascript Basics, React Basics, Mascine Learning Basics etc..)
-- Difficulty of questions ( Easy / Hard )
-- Questions show up quiz types ( Video, ABCD, etc.., Run actual code in the future )
-- Redirect to the site/etc you wanted to see. 
+
 
