@@ -7,8 +7,9 @@ import secrets from '../../../secrets.development.js';
 
 const Newtab = () => {
 
-  const [questions, setQuestions] = useState([]);
-  const [seenQuestions, setSeenQuestions] = useState([]);
+
+  const [question, setQuestion] = useState({ question: "Loading...", options: [] });
+  const [seenQuestions, setSeenQuestions] = useState([1, 2, 9]);
   const [url, setUrl] = useState('');
 
 
@@ -16,36 +17,36 @@ const Newtab = () => {
 
   const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  console.log(supabase);
-
   // console.log(supabase);
 
+
+  const fetchUnseenQuestion = async () => {
+    let { data: questions, error } = await supabase
+      .rpc('get_unseen_question', { seen_ids: [1, 2, 10, 9] });
+
+    console.log(questions[0]);
+
+    setQuestion(questions[0]);
+
+    if (error) {
+      console.log('error', error);
+      return;
+    }
+
+    // The stored procedure returns only one question
+    const { id, created_at, question: questionData } = questions[0];
+
+    setQuestion(questionData);
+
+
+  }
 
   //Store the URL from chrome.storage using useEffect
   useEffect(() => {
 
     // Grab the questions from the database, ignore if id is 1,5
-    const fetchQuestions = async () => {
 
-      let { data: fetchedQuestions, error } = await supabase
-        .from('questions')
-        .select('*')
-        .not('id', 'eq', 1)
-        .not('id', 'eq', 5);
-
-      console.log(questions);
-
-      if (error) console.log('error', error);
-
-
-      setQuestions(fetchedQuestions);
-      setSeenQuestions(fetchedQuestions.map(question => question.id));
-
-
-    }
-
-    fetchQuestions();
-
+    fetchUnseenQuestion();
 
     chrome.storage.local.get('url', (data) => {
       // Remove https:// from the URL and remove .com and everything after .com
@@ -83,18 +84,12 @@ const Newtab = () => {
           Change subjects you want to learn about in setting pages.
         </h6>
         <button onClick={handleClick}>Enter</button>
+        <h1>{question.question}</h1>
+        {question.options.map((option, index) => (
+          <p key={index}>{option}</p>
+        ))}
       </header>
 
-      <div>
-        {questions.length > 0 && (
-          <div>
-            <h1>{questions[0].question}</h1>
-            {questions[0].options.map((option, index) => (
-              <p key={index}>{option}</p>
-            ))}
-          </div>
-        )}
-      </div>
     </div>
   );
 };
