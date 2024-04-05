@@ -1,6 +1,7 @@
 Todo:
 
 - Create wireframe + send to ui designer for redesign ()
+-> Wip ( )
 - Test request questions based on the seen ids in chrome storage ( )
 - Test request question based on the type of quiz & difficulty ( )
 - Test exclude urls ( )

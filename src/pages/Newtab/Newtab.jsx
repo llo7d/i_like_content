@@ -105,10 +105,10 @@ const Newtab = () => {
         <p>
           Quiz yourself before you continue to {url}
         </p>
-        <h6>
+        {/* <h6>
           Change subjects you want to learn about in setting pages.
-        </h6>
-        <button onClick={handleClick}>Enter</button>
+        </h6> */}
+        {/* <button onClick={handleClick}>Enter</button> */}
         <h2>{question.question}</h2>
         {question.options.map((option, index) => (
           <button
