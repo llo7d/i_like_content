@@ -1,6 +1,17 @@
 let domainChangeCounter = 0;
 let domainChanges;
 
+// When the extension is installed, set default values.
+chrome.runtime.onInstalled.addListener(function() {
+  chrome.storage.local.set({
+    'isPluginActive': true,
+    'difficulty': 'easy',
+    'catagory': 'javascript',
+    'domainChanges': 10,
+    'blockedUrls': []
+  });
+});
+
 // Fetch the domainChanges and isPluginActive values from chrome storage
 chrome.storage.local.get(['domainChanges', 'isPluginActive'], function (result) {
   // Set domainChanges to the stored value or default to 15

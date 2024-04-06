@@ -1,9 +1,17 @@
 Todo:
 
+- Go over the code again and understand wtf is going on ( )
+-> Loading not showing. ( )
+
 - Create wireframe + send to ui designer for redesign ()
 -> Wip ( )
+
+- Test request question based on the type of quiz & difficulty ( X )
+-> Have code be as a question and display accordingly ( X )
+-> Make it dynamic, if user changes to javascript etc..  ( )
+
 - Test request questions based on the seen ids in chrome storage ( )
-- Test request question based on the type of quiz & difficulty ( )
+-> Create .rpc ( )
 - Test exclude urls ( )
 
 

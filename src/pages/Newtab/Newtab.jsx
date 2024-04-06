@@ -1,39 +1,75 @@
 import './Newtab.css';
 import './Newtab.scss';
 import React, { useState, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js'
-import secrets from '../../../secrets.development.js';
+import { createClient } from '@supabase/supabase-js';
 
 const Newtab = () => {
+  const [question, setQuestion] = useState({
+    question: 'Loading...',
+    options: [],
+  });
 
-
-  const [question, setQuestion] = useState({ question: "Loading...", options: [] });
   const [seenQuestions, setSeenQuestions] = useState([1, 2, 9]);
   const [url, setUrl] = useState('');
-
+  // Grab the category and difficulty from chrome.storage
+  const [category, setcategory] = useState('');
+  const [difficulty, setDifficulty] = useState('');
   const [selectedOption, setSelectedOption] = useState(null);
   const [correctAnswer, setCorrectAnswer] = useState(null);
 
+  const supabase = createClient(
+    'https://vdoqyjbnpwqkafxxssbb.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkb3F5amJucHdxa2FmeHhzc2JiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTEzNzIyMTUsImV4cCI6MjAyNjk0ODIxNX0.luuvoKY-udlAaD83Qf5pElsetmXVwPetr6C-v5gpjDg'
+  );
 
-  const { SUPABASE_URL, SUPABASE_ANON_KEY } = secrets;
+  useEffect(() => {
+    chrome.storage.local.get(['category', 'difficulty'], async (data) => {
+      setcategory(data.category);
+      setDifficulty(data.difficulty);
 
-  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      await fetchUnseenQuestion();
+    });
 
-  // console.log(supabase);
+    chrome.storage.local.get('url', (data) => {
+      // Remove https:// from the URL and remove .com and everything after .com
+      const urlObject = new URL(data.url);
 
-  console.log(question);
+      // Get the hostname from the URL object
+      let hostname = urlObject.hostname;
 
+      hostname = hostname.replace('www.', '').replace('.com', '');
 
-  const fetchUnseenQuestion = async () => {
+      // Set the state
+      setUrl(hostname);
+    });
+
+    console.log(category, difficulty);
+  }, []);
+
+  const fetchUnseenQuestion = async (category1, difficulty1) => {
+    // const fetchUnseenQuestion = async () => {
+    //   let { data: questions, error } = await supabase
+    //     .rpc('get_unseen_question', { seen_ids: [1, 2, 10, 9] });
+
     let { data: questions, error } = await supabase
-      .rpc('get_unseen_question', { seen_ids: [1, 2, 10, 9] });
+      .from('questions')
+      .select('*')
+      .eq('category', 'react')
+      .eq('difficulty', 'easy');
 
     console.log(questions[0]);
 
     setQuestion(questions[0]);
 
     if (error) {
-      console.log('error', error);
+      console.error('Error fetching questions:', error);
+      return;
+    }
+
+    if (!questions || questions.length === 0) {
+      console.error(
+        'No questions found for the specified category and difficulty'
+      );
       return;
     }
 
@@ -41,9 +77,7 @@ const Newtab = () => {
     const { id, created_at, question: questionData } = questions[0];
 
     setQuestion(questionData);
-
-
-  }
+  };
 
   const handleClickOption = (option) => {
     console.log('Option clicked:', option);
@@ -59,29 +93,6 @@ const Newtab = () => {
     }
   };
 
-  //Store the URL from chrome.storage using useEffect
-  useEffect(() => {
-
-    // Grab the questions from the database, ignore if id is 1,5
-
-    fetchUnseenQuestion();
-
-    chrome.storage.local.get('url', (data) => {
-      // Remove https:// from the URL and remove .com and everything after .com
-      const urlObject = new URL(data.url);
-
-      // Get the hostname from the URL object
-      let hostname = urlObject.hostname;
-
-      hostname = hostname.replace('www.', '').replace('.com', '');
-
-      // Set the state
-      setUrl(hostname);
-    });
-  },
-    []
-  );
-
   const handleClick = () => {
     // // Get the stored URL from chrome.storage
     // chrome.storage.local.get('url', (data) => {
@@ -94,34 +105,29 @@ const Newtab = () => {
     // });
 
     chrome.tabs.goBack();
-
   };
 
   return (
-
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Quiz yourself before you continue to {url}
-        </p>
+        <p>Quiz yourself before you continue to {url}</p>
         {/* <h6>
           Change subjects you want to learn about in setting pages.
         </h6> */}
         {/* <button onClick={handleClick}>Enter</button> */}
-        <h2>{question.question}</h2>
+        <h4>{question.question.text}</h4>
+        {question.question.codeSnippet && (
+          <pre>{question.question.codeSnippet}</pre>
+        )}
         {question.options.map((option, index) => (
-          <button
-            key={index}
-            onClick={() => handleClickOption(option)}>
+          <button key={index} onClick={() => handleClickOption(option)}>
             {/* style={{ backgroundColor: option === correctAnswer ? 'green' : 'initial' }}> */}
             {option}
           </button>
         ))}
       </header>
-
     </div>
-
   );
 };
 

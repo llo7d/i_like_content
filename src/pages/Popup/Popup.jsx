@@ -8,16 +8,16 @@ const Popup = () => {
   const [domainChanges, setDomainChanges] = useState(0);
 
   useEffect(() => {
-
     // Load and set defaults
-    chrome.storage.local.get(['difficulty', 'catagory', 'isPluginActive', 'domainChanges'], function (result) {
-      setDifficulty(result.difficulty ?? 'easy');
-      setCatagory(result.catagory ?? 'javascript');
-      setIsPluginActive(result.isPluginActive ?? true);
-      setDomainChanges(result.domainChanges ?? 0);
-    });
-
-
+    chrome.storage.local.get(
+      ['difficulty', 'catagory', 'isPluginActive', 'domainChanges'],
+      function (result) {
+        setDifficulty(result.difficulty);
+        setCatagory(result.catagory);
+        setIsPluginActive(result.isPluginActive);
+        setDomainChanges(result.domainChanges);
+      }
+    );
   }, []);
 
   const handleSubmit = () => {
@@ -51,14 +51,11 @@ const Popup = () => {
   };
 
   const handleIsPluginActiveChange = (event) => {
-
     setIsPluginActive(event.target.checked);
     chrome.storage.local.set({ isPluginActive: event.target.checked });
 
     console.log('isPluginActive: ', event.target.checked);
-
   };
-
 
   const handleSliderChange = (event) => {
     const value = event.target.value;
@@ -66,7 +63,6 @@ const Popup = () => {
 
     // Store the domainChanges inside chrome storage
     chrome.storage.local.set({ domainChanges: value });
-
   };
 
   const handleSetDifficulty = (event) => {
@@ -74,7 +70,6 @@ const Popup = () => {
 
     // Store the difficulty inside chrome storage
     chrome.storage.local.set({ difficulty: event.target.value });
-
   };
 
   const handleSetCatagory = (event) => {
@@ -82,9 +77,7 @@ const Popup = () => {
 
     // Store the catagory inside chrome storage
     chrome.storage.local.set({ catagory: event.target.value });
-
   };
-
 
   function mapDomainChangesToString(domainChanges) {
     if (domainChanges >= 50 && domainChanges <= 60) {
@@ -98,7 +91,6 @@ const Popup = () => {
     }
   }
 
-
   return (
     <div className="App">
       <header className="App-header">
@@ -111,9 +103,7 @@ const Popup = () => {
           value={domainChanges}
           onChange={handleSliderChange}
         />
-
         <p>You selected: {mapDomainChangesToString(domainChanges)}</p>
-
         <div className="toggle-container">
           <input
             type="checkbox"
@@ -128,23 +118,16 @@ const Popup = () => {
             </span>
           </label>
         </div>
-        <select
-          value={difficulty}
-          onChange={(e) => handleSetDifficulty(e)}
-        >
+        <select value={difficulty} onChange={(e) => handleSetDifficulty(e)}>
           <option value="easy">Easy</option>
           <option value="hard">Hard</option>
         </select>{' '}
-        <select
-          value={catagory}
-          onChange={(e) => handleSetCatagory(e)}
-        >
+        <select value={catagory} onChange={(e) => handleSetCatagory(e)}>
           <option value="javascript">Javascript</option>
           <option value="typescript">Typescript</option>
           <option value="python">Python</option>
           <option value="react">React</option>
           <options value="techy">Techincal</options>
-
         </select>{' '}
       </header>
     </div>
