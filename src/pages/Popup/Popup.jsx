@@ -3,17 +3,17 @@ import './Popup.css';
 
 const Popup = () => {
   const [difficulty, setDifficulty] = useState('');
-  const [catagory, setCatagory] = useState('');
+  const [category, setCategory] = useState('');
   const [isPluginActive, setIsPluginActive] = useState(true);
   const [domainChanges, setDomainChanges] = useState(0);
 
   useEffect(() => {
     // Load and set defaults
     chrome.storage.local.get(
-      ['difficulty', 'catagory', 'isPluginActive', 'domainChanges'],
+      ['difficulty', 'category', 'isPluginActive', 'domainChanges'],
       function (result) {
         setDifficulty(result.difficulty);
-        setCatagory(result.catagory);
+        setCategory(result.category);
         setIsPluginActive(result.isPluginActive);
         setDomainChanges(result.domainChanges);
       }
@@ -72,11 +72,11 @@ const Popup = () => {
     chrome.storage.local.set({ difficulty: event.target.value });
   };
 
-  const handleSetCatagory = (event) => {
-    setCatagory(event.target.value);
+  const handleSetcategory = (event) => {
+    setCategory(event.target.value);
 
-    // Store the catagory inside chrome storage
-    chrome.storage.local.set({ catagory: event.target.value });
+    // Store the category inside chrome storage
+    chrome.storage.local.set({ category: event.target.value });
   };
 
   function mapDomainChangesToString(domainChanges) {
@@ -122,7 +122,7 @@ const Popup = () => {
           <option value="easy">Easy</option>
           <option value="hard">Hard</option>
         </select>{' '}
-        <select value={catagory} onChange={(e) => handleSetCatagory(e)}>
+        <select value={category} onChange={(e) => handleSetcategory(e)}>
           <option value="javascript">Javascript</option>
           <option value="typescript">Typescript</option>
           <option value="python">Python</option>

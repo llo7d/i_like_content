@@ -8,7 +8,8 @@ Todo:
 
 - Test request question based on the type of quiz & difficulty ( X )
 -> Have code be as a question and display accordingly ( X )
--> Make it dynamic, if user changes to javascript etc..  ( )
+-> Make it dynamic, if user changes to javascript etc..  ( X )
+-> Add more questions for each type & return a random one ( )
 
 - Test request questions based on the seen ids in chrome storage ( )
 -> Create .rpc ( )

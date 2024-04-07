@@ -11,11 +11,6 @@ const Newtab = () => {
 
   const [seenQuestions, setSeenQuestions] = useState([1, 2, 9]);
   const [url, setUrl] = useState('');
-  // Grab the category and difficulty from chrome.storage
-  const [category, setcategory] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [correctAnswer, setCorrectAnswer] = useState(null);
 
   const supabase = createClient(
     'https://vdoqyjbnpwqkafxxssbb.supabase.co',
@@ -24,10 +19,10 @@ const Newtab = () => {
 
   useEffect(() => {
     chrome.storage.local.get(['category', 'difficulty'], async (data) => {
-      setcategory(data.category);
-      setDifficulty(data.difficulty);
 
-      await fetchUnseenQuestion();
+      console.log(data.category, data.difficulty);
+
+      await fetchUnseenQuestion(data.category, data.difficulty);
     });
 
     chrome.storage.local.get('url', (data) => {
@@ -43,10 +38,9 @@ const Newtab = () => {
       setUrl(hostname);
     });
 
-    console.log(category, difficulty);
   }, []);
 
-  const fetchUnseenQuestion = async (category1, difficulty1) => {
+  const fetchUnseenQuestion = async (category, difficulty) => {
     // const fetchUnseenQuestion = async () => {
     //   let { data: questions, error } = await supabase
     //     .rpc('get_unseen_question', { seen_ids: [1, 2, 10, 9] });
@@ -54,8 +48,8 @@ const Newtab = () => {
     let { data: questions, error } = await supabase
       .from('questions')
       .select('*')
-      .eq('category', 'react')
-      .eq('difficulty', 'easy');
+      .eq('category', category)
+      .eq('difficulty', difficulty);
 
     console.log(questions[0]);
 
@@ -80,20 +74,11 @@ const Newtab = () => {
   };
 
   const handleClickOption = (option) => {
-    console.log('Option clicked:', option);
-    setSelectedOption(option);
-
-    if (option === question.answer) {
-      console.log('Correct answer selected');
-      setCorrectAnswer(option);
-
-      setTimeout(() => {
-        chrome.tabs.goBack();
-      }, 2000);
-    }
+    // To be added
   };
 
   const handleClick = () => {
+
     // // Get the stored URL from chrome.storage
     // chrome.storage.local.get('url', (data) => {
 
@@ -116,16 +101,22 @@ const Newtab = () => {
           Change subjects you want to learn about in setting pages.
         </h6> */}
         {/* <button onClick={handleClick}>Enter</button> */}
-        <h4>{question.question.text}</h4>
-        {question.question.codeSnippet && (
-          <pre>{question.question.codeSnippet}</pre>
+        {question ? (
+          <>
+            <h4>{question.question.text}</h4>
+            {question.question.codeSnippet && (
+              <pre>{question.question.codeSnippet}</pre>
+            )}
+            {question.options.map((option, index) => (
+              <button key={index} onClick={() => handleClickOption(option)}>
+                {/* style={{ backgroundColor: option === correctAnswer ? 'green' : 'initial' }}> */}
+                {option}
+              </button>
+            ))}
+          </>
+        ) : (
+          <h4>No questions found</h4>
         )}
-        {question.options.map((option, index) => (
-          <button key={index} onClick={() => handleClickOption(option)}>
-            {/* style={{ backgroundColor: option === correctAnswer ? 'green' : 'initial' }}> */}
-            {option}
-          </button>
-        ))}
       </header>
     </div>
   );
