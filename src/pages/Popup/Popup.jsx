@@ -7,6 +7,10 @@ const Popup = () => {
   const [isPluginActive, setIsPluginActive] = useState(true);
   const [domainChanges, setDomainChanges] = useState(0);
 
+
+  const [email, setEmail] = useState('');
+  const emails = ['gmail.com', 'slack', 'stackoverflow', 'hackernews'];
+
   useEffect(() => {
     // Load and set defaults
     chrome.storage.local.get(
@@ -94,7 +98,26 @@ const Popup = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <label htmlFor="domainChanges">Choose how often?</label>
+        <br />
+        <label>
+          Select category and difficulty
+        </label>
+        <select value={difficulty} onChange={(e) => handleSetDifficulty(e)}>
+          <option value="easy">Easy</option>
+          <option value="hard">Hard</option>
+        </select>{' '}
+        <select value={category} onChange={(e) => handleSetcategory(e)}>
+          <option value="javascript">Javascript</option>
+          <option value="typescript">Typescript</option>
+          <option value="python">Python</option>
+          <option value="react">React</option>
+          <options value="techy">Techincal</options>
+        </select>{' '}
+
+        <br />
+
+        <label htmlFor="domainChanges">Choose the frequency?  {mapDomainChangesToString(domainChanges)}
+        </label>
         <input
           id="domainChanges"
           type="range"
@@ -103,8 +126,8 @@ const Popup = () => {
           value={domainChanges}
           onChange={handleSliderChange}
         />
-        <p>You selected: {mapDomainChangesToString(domainChanges)}</p>
         <div className="toggle-container">
+
           <input
             type="checkbox"
             id="toggle"
@@ -118,17 +141,24 @@ const Popup = () => {
             </span>
           </label>
         </div>
-        <select value={difficulty} onChange={(e) => handleSetDifficulty(e)}>
-          <option value="easy">Easy</option>
-          <option value="hard">Hard</option>
-        </select>{' '}
-        <select value={category} onChange={(e) => handleSetcategory(e)}>
-          <option value="javascript">Javascript</option>
-          <option value="typescript">Typescript</option>
-          <option value="python">Python</option>
-          <option value="react">React</option>
-          <options value="techy">Techincal</options>
-        </select>{' '}
+
+        <br />
+
+        <label>
+          Exclude URL
+        </label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter email"
+        />
+        <button onClick={console.log("Added")}>Add</button>
+        {emails.map((email, index) => (
+          <div key={index}>
+            {email} <button onClick={() => console.log("Removed")(index)}>x</button>
+          </div>
+        ))}
       </header>
     </div>
   );
