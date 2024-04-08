@@ -7,58 +7,46 @@ const Popup = () => {
   const [isPluginActive, setIsPluginActive] = useState(true);
   const [domainChanges, setDomainChanges] = useState(0);
 
-
-  const [email, setEmail] = useState('');
-  const emails = ['gmail.com', 'slack', 'stackoverflow', 'hackernews'];
+  const [newDomain, setNewDomain] = useState('');
+  const [domains, setDomains] = useState([]);
 
   useEffect(() => {
     // Load and set defaults
     chrome.storage.local.get(
-      ['difficulty', 'category', 'isPluginActive', 'domainChanges'],
+      ['difficulty', 'category', 'isPluginActive', 'domainChanges', 'excludedDomains'],
       function (result) {
         setDifficulty(result.difficulty);
         setCategory(result.category);
         setIsPluginActive(result.isPluginActive);
         setDomainChanges(result.domainChanges);
+        setDomains(result.excludedDomains);
+
+        console.log('result', result);
       }
     );
   }, []);
 
-  const handleSubmit = () => {
+  const handleAddDomain = () => {
     // Check if the URL is already blocked
-    if (blockedUrls.includes(url)) {
-      alert('URL already in the list');
-      return;
-    }
+    if (newDomain && !domains.includes(newDomain)) {
+      setDomains([...domains, newDomain]);
+      setNewDomain('');
 
-    // Inform the user has to include . it can just be google it has to be google.com
-    if (!url.includes('.')) {
-      alert('Invalid URL');
-      return;
+      // Store the new domain inside chrome storage
+      chrome.storage.local.set({ excludedDomains: [...domains, newDomain] });
     }
-
-    chrome.storage.sync.set(
-      { [url]: description, difficulty: difficulty },
-      function () {
-        // Update the state with the new URL
-        setBlockedUrls((prevUrls) => [...prevUrls, url]);
-      }
-    );
   };
 
-  const handleRemoveUrl = (urlToRemove) => {
-    // Remove the URL from Chrome storage
-    chrome.storage.sync.remove(urlToRemove, function () {
-      // Update the state to reflect the change
-      setBlockedUrls(blockedUrls.filter((url) => url !== urlToRemove));
-    });
+  const handleRemoveDomain = (urlToRemove) => {
+    setDomains(domains.filter((url) => url !== urlToRemove));
+    // Remove the domain from the chrome storage
+    chrome.storage.local.set({ excludedDomains: domains.filter((url) => url !== urlToRemove) });
   };
 
   const handleIsPluginActiveChange = (event) => {
     setIsPluginActive(event.target.checked);
     chrome.storage.local.set({ isPluginActive: event.target.checked });
 
-    console.log('isPluginActive: ', event.target.checked);
   };
 
   const handleSliderChange = (event) => {
@@ -144,20 +132,19 @@ const Popup = () => {
         </div>
 
         <br />
-
         <label>
           Exclude URL
         </label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter email"
-        />
-        <button onClick={console.log("Added")}>Add</button>
-        {emails.map((email, index) => (
+
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <input type="text" value={newDomain} onChange={e => setNewDomain(e.target.value)} placeholder="Enter new domain" />
+          <button onClick={handleAddDomain}>Add</button>
+        </div>
+
+        {domains && domains.map((domain, index) => (
           <div key={index}>
-            {email} <button onClick={() => console.log("Removed")(index)}>x</button>
+            {domain}
+            <button onClick={() => handleRemoveDomain(domain)}>x</button>
           </div>
         ))}
 

@@ -17,12 +17,14 @@ const Newtab = () => {
   );
 
   useEffect(() => {
-    chrome.storage.local.get(['category', 'difficulty', 'seenQuestions'], async (data) => {
-      await fetchUnseenQuestion(data.seenQuestions, data.category, data.difficulty);
 
-      console.log('Data: ', data);
+    // Get data from chrome storage
+    chrome.storage.local.get(['category', 'difficulty', 'seenQuestions'], async (data) => {
+      // Fetch the unseen question on page load
+      await fetchUnseenQuestion(data.seenQuestions, data.category, data.difficulty);
     });
 
+    // Simplfy the URL to display
     chrome.storage.local.get('url', (data) => {
       // Remove https:// from the URL and remove .com and everything after .com
       const urlObject = new URL(data.url);
@@ -39,22 +41,13 @@ const Newtab = () => {
   }, []);
 
   const fetchUnseenQuestion = async (seenQuestions, category, difficulty) => {
-    // const fetchUnseenQuestion = async () => {
-    //   let { data: questions, error } = await supabase
-    //     .rpc('get_unseen_question', { seen_ids: [1, 2, 10, 9] });
 
-    // let { data: questions, error } = await supabase
-    //   .from('questions')
-    //   .select('*')
-    //   .eq('category', category)
-    //   .eq('difficulty', difficulty);
-
+    // Call the stored procedure to get the unseen question
     let { data: questions, error } = await supabase
       .rpc('get_unseen_question', { seen_ids: seenQuestions, question_category: category, question_difficulty: difficulty });
 
-    console.log('Questions: ', questions);
-    // console.log(questions[0]);
 
+    // We do this to display h4, if no questions are found. Redo later.
     setQuestion(questions[0]);
 
     if (error) {
@@ -65,6 +58,7 @@ const Newtab = () => {
     if (!questions || questions.length === 0) {
       console.error(
         'No questions found for the specified category and difficulty'
+
       );
       return;
     }
@@ -82,6 +76,10 @@ const Newtab = () => {
 
   const handleClickOption = (option) => {
     // To be added
+
+    // Redirect to the last page the user visited
+    // chrome.tabs.goBack();
+
   };
 
   const handleClick = () => {

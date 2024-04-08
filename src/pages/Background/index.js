@@ -8,7 +8,7 @@ chrome.runtime.onInstalled.addListener(function () {
     'difficulty': 'easy',
     'category': 'javascript',
     'domainChanges': 10,
-    'blockedUrls': [],
+    'excludedDomains': ['gmail', 'slack', 'stackoverflow', 'hackernews'],
     'seenQuestions': []
   });
 });

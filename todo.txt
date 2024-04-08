@@ -13,10 +13,11 @@ Todo:
 -> Make it dynamic, if user changes to javascript etc..  ( X )
 -> Add more questions for each type & return a random one ( )
 
-- Test request questions based on the seen ids in chrome storage ( )
--> Create .rpc ( )
-- Test exclude urls ( )
-
+- Test request questions based on the seen ids in chrome storage ( X )
+-> Create .rpc ( X)
+- Add/Remove urls ( X )
+-> Double check if works (  )
+-> Exclude these domains from count ( )
 
 
 
