@@ -8,7 +8,8 @@ chrome.runtime.onInstalled.addListener(function () {
     'difficulty': 'easy',
     'category': 'javascript',
     'domainChanges': 10,
-    'blockedUrls': []
+    'blockedUrls': [],
+    'seenQuestions': []
   });
 });
 

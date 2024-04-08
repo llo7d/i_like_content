@@ -9,7 +9,6 @@ const Newtab = () => {
     options: [],
   });
 
-  const [seenQuestions, setSeenQuestions] = useState([1, 2, 9]);
   const [url, setUrl] = useState('');
 
   const supabase = createClient(
@@ -18,11 +17,10 @@ const Newtab = () => {
   );
 
   useEffect(() => {
-    chrome.storage.local.get(['category', 'difficulty'], async (data) => {
+    chrome.storage.local.get(['category', 'difficulty', 'seenQuestions'], async (data) => {
+      await fetchUnseenQuestion(data.seenQuestions, data.category, data.difficulty);
 
-      console.log(data.category, data.difficulty);
-
-      await fetchUnseenQuestion(data.category, data.difficulty);
+      console.log('Data: ', data);
     });
 
     chrome.storage.local.get('url', (data) => {
@@ -40,18 +38,22 @@ const Newtab = () => {
 
   }, []);
 
-  const fetchUnseenQuestion = async (category, difficulty) => {
+  const fetchUnseenQuestion = async (seenQuestions, category, difficulty) => {
     // const fetchUnseenQuestion = async () => {
     //   let { data: questions, error } = await supabase
     //     .rpc('get_unseen_question', { seen_ids: [1, 2, 10, 9] });
 
-    let { data: questions, error } = await supabase
-      .from('questions')
-      .select('*')
-      .eq('category', category)
-      .eq('difficulty', difficulty);
+    // let { data: questions, error } = await supabase
+    //   .from('questions')
+    //   .select('*')
+    //   .eq('category', category)
+    //   .eq('difficulty', difficulty);
 
-    console.log(questions[0]);
+    let { data: questions, error } = await supabase
+      .rpc('get_unseen_question', { seen_ids: seenQuestions, question_category: category, question_difficulty: difficulty });
+
+    console.log('Questions: ', questions);
+    // console.log(questions[0]);
 
     setQuestion(questions[0]);
 
@@ -70,7 +72,12 @@ const Newtab = () => {
     // The stored procedure returns only one question
     const { id, created_at, question: questionData } = questions[0];
 
+    // Update the state with the question
     setQuestion(questionData);
+
+    // Update the seen questions in chrome storage
+    chrome.storage.local.set({ seenQuestions: [...seenQuestions, id] });
+
   };
 
   const handleClickOption = (option) => {
@@ -115,7 +122,12 @@ const Newtab = () => {
             ))}
           </>
         ) : (
-          <h4>No questions found</h4>
+          <>
+            <h4>No questions found. </h4>
+            <h4>
+              Reset your seen id's counter and commit some new question
+            </h4>
+          </>
         )}
       </header>
     </div>

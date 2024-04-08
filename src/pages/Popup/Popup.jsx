@@ -105,14 +105,15 @@ const Popup = () => {
         <select value={difficulty} onChange={(e) => handleSetDifficulty(e)}>
           <option value="easy">Easy</option>
           <option value="hard">Hard</option>
-        </select>{' '}
+        </select>
+
         <select value={category} onChange={(e) => handleSetcategory(e)}>
+          <option value="techy">Technical</option>
           <option value="javascript">Javascript</option>
           <option value="typescript">Typescript</option>
           <option value="python">Python</option>
           <option value="react">React</option>
-          <options value="techy">Techincal</options>
-        </select>{' '}
+        </select>
 
         <br />
 
@@ -159,6 +160,14 @@ const Popup = () => {
             {email} <button onClick={() => console.log("Removed")(index)}>x</button>
           </div>
         ))}
+
+        <br />
+        <button onClick={() => {
+          chrome.storage.local.set({ seenQuestions: [] });
+          alert('Questions reset');
+        }}>
+          Reset questions
+        </button>
       </header>
     </div>
   );
