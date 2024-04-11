@@ -35,15 +35,28 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
 // Listen for changes to the URL of the active tab
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.url) {
+
+    // Extract the domain from the URL
+    const url = new URL(changeInfo.url);
+    const domain = url.hostname;
+
+    console.log("changeInfo", changeInfo);
     // If domain name ends with /newtab.htm ignore it
-    if (changeInfo.url.includes('newtab.html')) {
+    if (changeInfo.url.includes('newtab.html') || changeInfo.url === 'about:blank' || changeInfo.url === 'chrome://newtab/' || changeInfo.url === '' || domain === 'newtab' || domain === 'localhost' || domain === 'mail.google.com') {
       return;
     }
 
+
+
+
     // Check if the plugin is active before incrementing domainChangeCounter and storing the URL
-    chrome.storage.local.get(['isPluginActive'], function (result) {
-      if (result.isPluginActive) {
+    chrome.storage.local.get(['isPluginActive', 'excludedDomains'], function (result) {
+
+      console.log(result.excludedDomains, domain);
+      if (result.isPluginActive && !result.excludedDomains.includes(domain)) {
         domainChangeCounter++;
+
+        console.log(domainChangeCounter, domainChanges, domain, changeInfo.url);
 
         // If the domainChangeCounter reaches the domainChanges value, reset the counter and open a new tab
         if (domainChangeCounter >= domainChanges) {
