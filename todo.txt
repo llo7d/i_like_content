@@ -19,6 +19,7 @@ Todo:
 -> Double check if works ( X )
 -> Exclude these domains from count ( X )
 --> Exclude works, but need better way I think ( )
+--> If I add google.com it does not work ( )
 
 
 

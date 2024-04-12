@@ -52,11 +52,14 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     // Check if the plugin is active before incrementing domainChangeCounter and storing the URL
     chrome.storage.local.get(['isPluginActive', 'excludedDomains'], function (result) {
 
-      console.log(result.excludedDomains, domain);
-      if (result.isPluginActive && !result.excludedDomains.includes(domain)) {
+      console.log('Excluded domains:', result.excludedDomains);
+      console.log('Current domain:', domain);
+
+      if (result.isPluginActive && !result.excludedDomains.some(excludedDomain => domain.includes(excludedDomain))) {
         domainChangeCounter++;
 
-        console.log(domainChangeCounter, domainChanges, domain, changeInfo.url);
+        console.log('Domain change counter:', domainChangeCounter);
+        console.log('Domain changes:', domainChanges);
 
         // If the domainChangeCounter reaches the domainChanges value, reset the counter and open a new tab
         if (domainChangeCounter >= domainChanges) {
