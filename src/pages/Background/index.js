@@ -46,9 +46,6 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       return;
     }
 
-
-
-
     // Check if the plugin is active before incrementing domainChangeCounter and storing the URL
     chrome.storage.local.get(['isPluginActive', 'excludedDomains'], function (result) {
 

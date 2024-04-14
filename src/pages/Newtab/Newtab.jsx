@@ -122,6 +122,7 @@ const Newtab = () => {
         ) : (
           <>
             <h4>No questions found. </h4>
+
             <h4>
               Reset your seen id's counter and commit some new question
             </h4>

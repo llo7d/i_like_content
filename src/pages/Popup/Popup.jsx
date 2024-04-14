@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Popup.css';
+import gmailFavicon from './assets/gmail.png';
 
 const Popup = () => {
   const [difficulty, setDifficulty] = useState('');
@@ -143,7 +144,7 @@ const Popup = () => {
 
         {domains && domains.map((domain, index) => (
           <div key={index}>
-            {domain}
+            <img src={domain === 'gmail' ? gmailFavicon : `https://www.google.com/s2/favicons?domain_url=https://${domain}.com`} alt="Favicon" />            {domain}
             <button onClick={() => handleRemoveDomain(domain)}>x</button>
           </div>
         ))}
