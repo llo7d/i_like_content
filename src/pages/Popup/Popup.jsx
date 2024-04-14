@@ -137,10 +137,10 @@ const Popup = () => {
           Exclude URL
         </label>
 
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <form style={{ display: 'flex', alignItems: 'center' }} onSubmit={(e) => { e.preventDefault(); handleAddDomain(); }}>
           <input type="text" value={newDomain} onChange={e => setNewDomain(e.target.value)} placeholder="Enter new domain" />
-          <button onClick={handleAddDomain}>Add</button>
-        </div>
+          <button type="submit">Add</button>
+        </form>
 
         {domains && domains.map((domain, index) => (
           <div key={index}>
