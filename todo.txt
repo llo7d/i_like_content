@@ -1,7 +1,14 @@
 Todo:
 
+
+- Turn green if correct, red if not ( )
+
+
+- Redo the storing of seen ids in chrome storage afte a question has been answered correctly, not seen ( )
+-> Think about how to do the redirecting part after answering question ( )
+
 - Go over the code again and understand wtf is going on ( )
--> Loading not showing. ( )
+-> Loading not showing. ( X )
 
 - Create wireframe + send to ui designer for redesign ( )
 -> Pop up ( X )
@@ -18,24 +25,16 @@ Todo:
 - Add/Remove urls ( X )
 -> Double check if works ( X )
 -> Exclude these domains from count ( X )
---> Exclude works, but need better way I think ( )
+--> Exclude works, but need better way I think ( X )
 --> If I add google.com it does not work, fixed ( X )
----> but double check again how it works, as it seems to be working now (  )
+---> but double check again how it works, as it seems to be working now ( X )
 
-- Get the favicon of url provided URL and display it ( )
+- Get the favicon of url provided URL and display it ( X )
 
 
 
 Ideas:
-- Make figma design wireframe ( )
 - See if the question is correct or not, turn green if is and red if not, allow only clicking once, redirect after ( )
-- Store the seen ids in chrome storage and request based on that (  )
-- Allower user to choose the type of quiz ( ) 
-- Exclude urls ( )
-- Exclude urls from the same domain ( )
-- After the new tab opens "That also counts as a new tab" , so it should not be counted as a new tab. ( )
-- Pause for an hour button or something. ( )
-- Questions can repeat on/off button ( )
 
 
 

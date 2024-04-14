@@ -10,6 +10,8 @@ const Newtab = () => {
   });
 
   const [url, setUrl] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const supabase = createClient(
     'https://vdoqyjbnpwqkafxxssbb.supabase.co',
@@ -58,8 +60,8 @@ const Newtab = () => {
     if (!questions || questions.length === 0) {
       console.error(
         'No questions found for the specified category and difficulty'
-
       );
+      setIsLoading(false);
       return;
     }
 
@@ -69,33 +71,75 @@ const Newtab = () => {
     // Update the state with the question
     setQuestion(questionData);
 
+    // Set the loading state to false
+    setIsLoading(false);
+
+    console.log('Question:', questionData);
+
     // Update the seen questions in chrome storage
     chrome.storage.local.set({ seenQuestions: [...seenQuestions, id] });
 
   };
 
-  const handleClickOption = (option) => {
-    // To be added
 
-    // Redirect to the last page the user visited
-    // chrome.tabs.goBack();
 
-  };
+  function Loading() {
+    return <div>Loading...</div>;
+  }
 
-  const handleClick = () => {
 
-    // // Get the stored URL from chrome.storage
-    // chrome.storage.local.get('url', (data) => {
 
-    //   console.log(data.url);
-    //   // Redirect the from the current active tab to the stored URL
-    //   chrome.tabs.update({ url: data.url });
 
-    //   // Redirect to the last page the user visited
-    // });
+  function Question({ question }) {
 
-    chrome.tabs.goBack();
-  };
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [redirecting, setRedirecting] = useState(false);
+    const [feedbackMessage, setFeedbackMessage] = useState('');
+
+    const checkAnswer = (option) => {
+      setSelectedOption(option);
+
+      if (option === question.correctAnswer) {
+        setFeedbackMessage('That is correct, redirecting...');
+      } else {
+        setFeedbackMessage('That was wrong... stop watching videos.. redirecting...');
+      }
+
+      setRedirecting(true);
+
+      // Redirect the user to the last page they visited after 3 seconds
+      setTimeout(() => {
+        chrome.tabs.goBack();
+      }, 1500);
+    };
+
+    return (
+      <div>
+        <h2>{question.question.text}</h2>
+        {question.question.codeSnippet && <pre>{question.question.codeSnippet}</pre>}
+        {question.options.map((option, index) => (
+          <button
+            key={index}
+            onClick={() => checkAnswer(option)}
+            style={{
+              backgroundColor: selectedOption
+                ? option === question.correctAnswer
+                  ? 'green'
+                  : option === selectedOption
+                    ? 'red'
+                    : ''
+                : ''
+            }}
+          >
+            {option}
+          </button>
+        ))}
+        {redirecting && <p>{feedbackMessage}</p>}
+
+      </div>
+    );
+  }
+
 
   return (
     <div className="App">
@@ -106,28 +150,21 @@ const Newtab = () => {
           Change subjects you want to learn about in setting pages.
         </h6> */}
         {/* <button onClick={handleClick}>Enter</button> */}
-        {question ? (
-          <>
-            <h4>{question.question.text}</h4>
-            {question.question.codeSnippet && (
-              <pre>{question.question.codeSnippet}</pre>
-            )}
-            {question.options.map((option, index) => (
-              <button key={index} onClick={() => handleClickOption(option)}>
-                {/* style={{ backgroundColor: option === correctAnswer ? 'green' : 'initial' }}> */}
-                {option}
-              </button>
-            ))}
-          </>
-        ) : (
-          <>
-            <h4>No questions found. </h4>
-
-            <h4>
-              Reset your seen id's counter and commit some new question
-            </h4>
-          </>
-        )}
+        <div>
+          {isLoading ? (
+            <Loading />
+          ) : question ? (
+            <Question question={question} />
+          ) : (
+            <>
+              <h4>No questions found. </h4>
+              <h4>
+                Reset your seen id's counter and commit some new question
+              </h4>
+            </>
+          )}
+          {/* Rest of your JSX... */}
+        </div>
       </header>
     </div>
   );
