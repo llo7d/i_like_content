@@ -1,10 +1,12 @@
 Todo:
 
 
-- Turn green if correct, red if not ( )
+- Turn green if correct, red if not ( X )
 
 
-- Redo the storing of seen ids in chrome storage afte a question has been answered correctly, not seen ( )
+- Redo the storing of seen ids in chrome storage afte a question has been answered correctly, not seen ( X )
+-> Double check as I think its sphagetti code (  )
+-> Rename everything to answeredIDs ( )
 -> Think about how to do the redirecting part after answering question ( )
 
 - Go over the code again and understand wtf is going on ( )

@@ -7,10 +7,13 @@ const Newtab = () => {
   const [question, setQuestion] = useState({
     question: 'Loading...',
     options: [],
+    questionId: null
   });
 
   const [url, setUrl] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [questionId, setQuestionId] = useState(null);
+
 
 
   const supabase = createClient(
@@ -24,6 +27,8 @@ const Newtab = () => {
     chrome.storage.local.get(['category', 'difficulty', 'seenQuestions'], async (data) => {
       // Fetch the unseen question on page load
       await fetchUnseenQuestion(data.seenQuestions, data.category, data.difficulty);
+
+      console.log('Data:', data);
     });
 
     // Simplfy the URL to display
@@ -68,6 +73,7 @@ const Newtab = () => {
     // The stored procedure returns only one question
     const { id, created_at, question: questionData } = questions[0];
 
+    setQuestionId(id);
     // Update the state with the question
     setQuestion(questionData);
 
@@ -77,7 +83,7 @@ const Newtab = () => {
     console.log('Question:', questionData);
 
     // Update the seen questions in chrome storage
-    chrome.storage.local.set({ seenQuestions: [...seenQuestions, id] });
+    // chrome.storage.local.set({ seenQuestions: [...seenQuestions, id] });
 
   };
 
@@ -104,6 +110,19 @@ const Newtab = () => {
       } else {
         setFeedbackMessage('That was wrong... stop watching videos.. redirecting...');
       }
+
+      // Get the current seenQuestions from chrome storage
+      chrome.storage.local.get(['seenQuestions'], function (data) {
+        let seenQuestions = data.seenQuestions || [];
+
+        // Add the current question id to seenQuestions
+        seenQuestions.push(questionId);
+
+        // Update the seen questions in chrome storage
+        chrome.storage.local.set({ seenQuestions: seenQuestions }, function () {
+          console.log('Seen questions updated in Chrome storage');
+        });
+      });
 
       setRedirecting(true);
 
