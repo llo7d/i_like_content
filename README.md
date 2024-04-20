@@ -38,7 +38,7 @@ However, the other hard addictions are not.
 ## Help improve the plugin
 Clone the project and push new questions in the questions.json file. Json format:
 
-```json
+```javascript
 {
     "question": {
         "options": [
@@ -53,10 +53,10 @@ Clone the project and push new questions in the questions.json file. Json format
         },
         "correctAnswer": "<App />"
     },
-    "category": "react",
-    "difficulty": "easy",
-    "your_name": "looyd",
-    "your_github_url": "github.com/llo7d"
+    "category": "react", // technical, python, react, javascript, typescript
+    "difficulty": "easy", // easy, hard
+    "your_name": "looyd", // Your name dud, Josh, Peter etc..
+    "your_github_url": "github.com/llo7d" // Link to your github
 },
 ...
 ```
