@@ -18,7 +18,7 @@
 
 Addictions are good. 
 
-  ```sh
+  ```javascript
   Alchacoloc? True
   Cigarets? True
   Crack? True;
@@ -26,7 +26,7 @@ Addictions are good.
 
 However, the other hard addictions are not.
 
-  ```sh
+  ```javascript
   YouTube? false
   TikTok? false
   Twitch? false
@@ -44,48 +44,14 @@ Clone the project and push new questions in the questions.json file.
 
 ### 1. HTML & TailwindCSS
 
-[See this video](https://youtu.be/dZfTGpOufg0?si=nQfjl-y6OePNoili) or follow the steps below:
+[Dont know how? Learn on YouTube](https://www.youtube.com/results?search_query=how+to+clone+and+commit+new+changes+in+github) 
 
-You dont have to do anythig...its already finished, but if you want to customize the theme color
+Keep the json of questions in this format:
+
+```json
+Here goes your json object definition
+```
 </br>
-Make sure you have npm installed and then just do these:
-
-  ```sh
-  npm install 
-  ```
-
-  ```sh
-  npm run watch
-  ```
-
-And start changing the theme hex color code.
-
-
-### 2. React & TailwindCSS
-
-[See this video](https://youtu.be/dZfTGpOufg0?si=nQfjl-y6OePNoili) or follow the steps below:
-
-Make sure you have npm installed and then just do:
-
-  ```sh
-  npm install 
-  ```
-
-  ```sh
-  npm run start
-  ```
-
-Yup.. thats pretty much it. 
-<br>
-Start customizing it and add your info and projects.
-
-### 3. Figma 3D Character
-
-Figma is free and you can customize the 3D character, but
-</br>
-to be honest [just watch this video](https://youtu.be/dZfTGpOufg0?si=5Zys0MLz5P9RFEcJ&t=202) its easier that way.
-
-
 
 
 
