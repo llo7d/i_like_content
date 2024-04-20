@@ -65,7 +65,7 @@ Clone the project and push new questions in the questions.json file. Json format
 </br>
 [Dont know how? Learn on YouTube](https://www.youtube.com/results?search_query=how+to+clone+and+commit+new+changes+in+github) 
 </br>
-Have normal good questions that you would like to see for each subject based on difficutly and subject.
+Please include **code snippets** and just Have normal good questions that you would like to see for each subject based on difficutly and subject.
 
 
 
