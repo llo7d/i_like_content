@@ -16,7 +16,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-![Portfolio Image](screenshot1.png)
+![Plugin Image](screenshot1.png)
 
 Addictions are good. 
 
@@ -35,10 +35,8 @@ However, the other hard addictions are not.
   ```
 
 <!-- GETTING STARTED -->
-## Getting Started
-Clone the project and push new questions in the questions.json file.
-
-Keep the json of questions in this format:
+## Help improve the plugin
+Clone the project and push new questions in the questions.json file. Json format:
 
 ```json
 {
@@ -62,11 +60,13 @@ Keep the json of questions in this format:
 },
 ...
 ```
-</br>
-![Portfolio Image](screenshot2.png)
+
+![Plugin Image](screenshot2.png)
 </br>
 [Dont know how? Learn on YouTube](https://www.youtube.com/results?search_query=how+to+clone+and+commit+new+changes+in+github) 
 </br>
-You can use AI to help your generate some questions, but have normal good questions that you would like to see for each subject based on difficutly and subject.
+Have normal good questions that you would like to see for each subject based on difficutly and subject.
+
+
 
 
