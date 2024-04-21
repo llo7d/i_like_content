@@ -4,7 +4,7 @@
   <p align="center">
     A chrome plugin that helps you watch content and learn something while your doing it
     <br />
-    <a href="https://youtu.be/dZfTGpOufg0">See how I made it (Episode 1) </a>
+    <a href="https://youtu.be/OJVOkqCfaKw">See how I made it (Episode 1) </a>
     <br />
     ·
     <br />
