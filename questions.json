@@ -1,21 +1,66 @@
-// 
-// example of a json object
-//
-{
-    "id": 5, // Ignore this field
-    "created_at": "2024-03-27T19:31:58.273587+00:00", // Ignore this field
-    "subject": "Python", // Accepted: Python, JavaScript, Java, C++
-    "difficulty": "easy", // Accepted: easy,hard
-    "question": {
-        "options": [
-            "Guido van Rossum",
-            "Dennis Ritchie",
-            "James Gosling",
-            "Bjarne Stroustrup"
-        ],
-        "question": "Who is the creator of Python programming language?",
-        "correctAnswer": "Guido van Rossum" // Must be same as in options array
+[
+    {
+        "subject": "Python",
+        "difficulty": "easy",
+        "question": {
+            "options": [
+                "append()",
+                "insert()",
+                "extend()",
+                "add()"
+            ],
+            "question": "Which method adds an element to the end of a Python list?",
+            "correctAnswer": "append()"
+        },
+        "your_name": "Yatochka",
+        "your_github_url": "https://github.com/yatochka-dev"
     },
-    "your_name": "", // Your name, will be used as "question by" in the app
-    "your_github_url": "" // Your github url
-}
+    {
+        "subject": "JavaScript",
+        "difficulty": "hard",
+        "question": {
+            "options": [
+                "The value of 'x' remains unchanged",
+                "A 'ReferenceError' is thrown",
+                "The value of 'x' becomes undefined",
+                "JavaScript creates a global variable named 'x'"
+            ],
+            "question": "Consider the code: `let x = 10; if (true) { x = 20; } console.log(x);`. What is the output and why?",
+            "correctAnswer": "The value of 'x' remains unchanged"
+        },
+        "your_name": "Yatochka",
+        "your_github_url": "https://github.com/yatochka-dev"
+    },
+    {
+        "subject": "Java",
+        "difficulty": "easy",
+        "question": {
+            "options": [
+                "Method Overriding",
+                "Method Overloading",
+                "Inheritance",
+                "Encapsulation"
+            ],
+            "question": "A class `Vehicle` has a method `move()`. A class `Car` extends `Vehicle` and provides its own implementation of `move()`. What OOP concept is this?",
+            "correctAnswer": "Method Overriding"
+        },
+        "your_name": "Yatochka",
+        "your_github_url": "https://github.com/yatochka-dev"
+    },
+    {
+        "subject": "C++",
+        "difficulty": "hard",
+        "question": {
+            "options": [
+                "Compiler error",
+                "0",
+                "Garbage value",
+                "Depends on the compiler implementation"
+            ],
+            "question": "What is the likely output of the following code: `int main() { int x; printf(\"%d\", x); return 0; }`",
+            "correctAnswer": "Garbage value"
+        },
+        "your_name": "Yatochka",
+        "your_github_url": "https://github.com/yatochka-dev"
+    }
+]
