@@ -64,8 +64,8 @@ Fork the project and pull new questions in the questions.json file. Json format:
 ![Plugin Image](screenshot2.png)
 </br>
 Fork and make a pull request with your .json questions, please include **code snippets** in the question.
-/br>
-[Dont know how? Learn on YouTube](https://www.youtube.com/results?search_query=fork+and+make+pull+request+github) 
+</br>
+[Dont know how to fork and pull? Learn on YouTube](https://www.youtube.com/results?search_query=fork+and+make+pull+request+github) 
 </br>
 
 
