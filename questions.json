@@ -1,21 +1,22 @@
 // 
-// example of a json object
+// example of a json object, please include code snippets as they look cool
 //
 {
-    "id": 5, // Ignore this field
-    "created_at": "2024-03-27T19:31:58.273587+00:00", // Ignore this field
-    "subject": "Python", // Accepted: Python, JavaScript, Java, C++
-    "difficulty": "easy", // Accepted: easy,hard
     "question": {
         "options": [
-            "Guido van Rossum",
-            "Dennis Ritchie",
-            "James Gosling",
-            "Bjarne Stroustrup"
+            "<App />",
+            "App()",
+            "new App()",
+            "App.render()"
         ],
-        "question": "Who is the creator of Python programming language?",
-        "correctAnswer": "Guido van Rossum" // Must be same as in options array
+        "question": {
+            "text": "How do you render the App component in a React application?",
+            "codeSnippet": "const App = () => <div>Hello, world!</div>;"
+        },
+        "correctAnswer": "<App />"
     },
-    "your_name": "", // Your name, will be used as "question by" in the app
-    "your_github_url": "" // Your github url
+    "category": "react", // technical, python, react, javascript, typescript
+    "difficulty": "easy", // easy, hard
+    "your_name": "looyd", // Your name dud, Josh, Peter etc..
+    "your_github_url": "github.com/llo7d" // Link to your github
 }
