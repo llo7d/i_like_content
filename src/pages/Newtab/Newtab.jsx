@@ -93,9 +93,6 @@ const Newtab = () => {
     return <div>Loading...</div>;
   }
 
-
-
-
   function Question({ question }) {
 
     const [selectedOption, setSelectedOption] = useState(null);
@@ -182,7 +179,7 @@ const Newtab = () => {
               </h4>
             </>
           )}
-          {/* Rest of your JSX... */}
+
         </div>
       </header>
     </div>

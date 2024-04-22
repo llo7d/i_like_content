@@ -8,6 +8,7 @@ Todo:
 -> Double check as I think its sphagetti code (  )
 -> Rename everything to answeredIDs ( )
 -> Think about how to do the redirecting part after answering question ( )
+-> if question not answered correctly, dont add in seenIDs ( )
 
 - Go over the code again and understand wtf is going on ( )
 -> Loading not showing. ( X )
