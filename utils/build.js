@@ -3,7 +3,7 @@ process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
 process.env.ASSET_PATH = '/';
 
-var webpack = require('webpack'),
+const webpack = require('webpack'),
   path = require('path'),
   fs = require('fs'),
   config = require('../webpack.config'),
@@ -13,7 +13,7 @@ delete config.chromeExtensionBoilerplate;
 
 config.mode = 'production';
 
-var packageInfo = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+const packageInfo = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
 config.plugins = (config.plugins || []).concat(
   new ZipPlugin({
