@@ -36,7 +36,7 @@ However, the other hard addictions are not.
 
 <!-- GETTING STARTED -->
 ## Help improve the plugin
-Clone the project and push new questions in the questions.json file. Json format:
+Fork the project and pull new questions in the questions.json file. Json format: Good learning on how to use Github
 
 ```javascript
 {
