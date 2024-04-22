@@ -63,9 +63,10 @@ Clone the project and push new questions in the questions.json file. Json format
 
 ![Plugin Image](screenshot2.png)
 </br>
-[Dont know how? Learn on YouTube](https://www.youtube.com/results?search_query=how+to+clone+and+commit+new+changes+in+github) 
+Fork and make a pull request with your .json questions, please include **code snippets** in the question.
+[Dont know how? Learn on YouTube](https://www.youtube.com/results?search_query=fork+and+make+pull+request+github) 
 </br>
-Please include **code snippets** and just Have normal good questions that you would like to see for each subject based on difficutly and subject.
+
 
 
 
