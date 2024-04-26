@@ -1,7 +1,5 @@
 [
     {
-        "subject": "Python",
-        "difficulty": "easy",
         "question": {
             "options": [
                 "append()",
@@ -9,15 +7,18 @@
                 "extend()",
                 "add()"
             ],
-            "question": "Which method adds an element to the end of a Python list?",
+            "question": {
+                "text": "Which method adds an element to the end of a Python list?",
+                "codeSnippet": null
+            },
             "correctAnswer": "append()"
         },
-        "your_name": "Yatochka",
-        "your_github_url": "https://github.com/yatochka-dev"
+        "category": "Python",
+        "difficulty": "easy",
+        "your_name": "looyd",
+        "your_github_url": "github.com/llo7d"
     },
     {
-        "subject": "JavaScript",
-        "difficulty": "hard",
         "question": {
             "options": [
                 "The value of 'x' remains unchanged",
@@ -25,15 +26,18 @@
                 "The value of 'x' becomes undefined",
                 "JavaScript creates a global variable named 'x'"
             ],
-            "question": "Consider the code: `let x = 10; if (true) { x = 20; } console.log(x);`. What is the output and why?",
+            "question": {
+                "text": "What is the output and why?",
+                "codeSnippet": "let x = 10; if (true) { x = 20; } console.log(x);"
+            },
             "correctAnswer": "The value of 'x' remains unchanged"
         },
-        "your_name": "Yatochka",
-        "your_github_url": "https://github.com/yatochka-dev"
+        "category": "JavaScript",
+        "difficulty": "hard",
+        "your_name": "looyd",
+        "your_github_url": "github.com/llo7d"
     },
     {
-        "subject": "Java",
-        "difficulty": "easy",
         "question": {
             "options": [
                 "Method Overriding",
@@ -41,15 +45,18 @@
                 "Inheritance",
                 "Encapsulation"
             ],
-            "question": "A class `Vehicle` has a method `move()`. A class `Car` extends `Vehicle` and provides its own implementation of `move()`. What OOP concept is this?",
+            "question": {
+                "text": "A class `Vehicle` has a method `move()`. A class `Car` extends `Vehicle` and provides its own implementation of `move()`. What OOP concept is this?",
+                "codeSnippet": null
+            },
             "correctAnswer": "Method Overriding"
         },
-        "your_name": "Yatochka",
-        "your_github_url": "https://github.com/yatochka-dev"
+        "category": "Java",
+        "difficulty": "easy",
+        "your_name": "looyd",
+        "your_github_url": "github.com/llo7d"
     },
     {
-        "subject": "C++",
-        "difficulty": "hard",
         "question": {
             "options": [
                 "Compiler error",
@@ -57,10 +64,15 @@
                 "Garbage value",
                 "Depends on the compiler implementation"
             ],
-            "question": "What is the likely output of the following code: `int main() { int x; printf(\"%d\", x); return 0; }`",
+            "question": {
+                "text": "What is the likely output of the following code?",
+                "codeSnippet": "int main() { int x; printf(\"%d\", x); return 0; }"
+            },
             "correctAnswer": "Garbage value"
         },
-        "your_name": "Yatochka",
-        "your_github_url": "https://github.com/yatochka-dev"
+        "category": "C++",
+        "difficulty": "hard",
+        "your_name": "looyd",
+        "your_github_url": "github.com/llo7d"
     }
 ]

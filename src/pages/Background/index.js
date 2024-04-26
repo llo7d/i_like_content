@@ -57,6 +57,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 
         // If the domainChangeCounter reaches the domainChanges value, reset the counter and open a new tab
         if (domainChangeCounter >= domainChanges) {
+
           domainChangeCounter = 0;
           chrome.tabs.update(tabId, { url: chrome.runtime.getURL('newtab.html') });
         }
