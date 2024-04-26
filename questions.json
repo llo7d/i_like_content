@@ -1,22 +1,78 @@
-// 
-// example of a json object, please include code snippets as they look cool
-//
-{
-    "question": {
-        "options": [
-            "<App />",
-            "App()",
-            "new App()",
-            "App.render()"
-        ],
+[
+    {
         "question": {
-            "text": "How do you render the App component in a React application?",
-            "codeSnippet": "const App = () => <div>Hello, world!</div>;"
+            "options": [
+                "append()",
+                "insert()",
+                "extend()",
+                "add()"
+            ],
+            "question": {
+                "text": "Which method adds an element to the end of a Python list?",
+                "codeSnippet": null
+            },
+            "correctAnswer": "append()"
         },
-        "correctAnswer": "<App />"
+        "category": "Python",
+        "difficulty": "easy",
+        "your_name": "Yatochka",
+        "your_github_url": "github.com/yatochka-dev"
     },
-    "category": "react", // technical, python, react, javascript, typescript
-    "difficulty": "easy", // easy, hard
-    "your_name": "looyd", // Your name dud, Josh, Peter etc..
-    "your_github_url": "github.com/llo7d" // Link to your github
-}
+    {
+        "question": {
+            "options": [
+                "The value of 'x' remains unchanged",
+                "A 'ReferenceError' is thrown",
+                "The value of 'x' becomes undefined",
+                "JavaScript creates a global variable named 'x'"
+            ],
+            "question": {
+                "text": "What is the output and why?",
+                "codeSnippet": "let x = 10; if (true) { x = 20; } console.log(x);"
+            },
+            "correctAnswer": "The value of 'x' remains unchanged"
+        },
+        "category": "JavaScript",
+        "difficulty": "hard",
+        "your_name": "Yatochka",
+        "your_github_url": "github.com/yatochka-dev"
+    },
+    {
+        "question": {
+            "options": [
+                "Method Overriding",
+                "Method Overloading",
+                "Inheritance",
+                "Encapsulation"
+            ],
+            "question": {
+                "text": "A class `Vehicle` has a method `move()`. A class `Car` extends `Vehicle` and provides its own implementation of `move()`. What OOP concept is this?",
+                "codeSnippet": null
+            },
+            "correctAnswer": "Method Overriding"
+        },
+        "category": "Java",
+        "difficulty": "easy",
+        "your_name": "Yatochka",
+        "your_github_url": "github.com/yatochka-dev"
+    },
+    {
+        "question": {
+            "options": [
+                "Compiler error",
+                "0",
+                "Garbage value",
+                "Depends on the compiler implementation"
+            ],
+            "question": {
+                "text": "What is the likely output of the following code?",
+                "codeSnippet": "int main() { int x; printf(\"%d\", x); return 0; }"
+            },
+            "correctAnswer": "Garbage value"
+        },
+        "category": "C++",
+        "difficulty": "hard",
+        "your_name": "Yatochka",
+        "your_github_url": "github.com/yatochka-dev"
+    }
+]
