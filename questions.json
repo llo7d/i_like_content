@@ -1,3 +1,31 @@
+// 
+// example of a json object, please include code snippets as they look cool & make sure to include your name & github
+//
+{
+    "question": {
+        "options": [
+            "<App />",
+            "App()",
+            "new App()",
+            "App.render()"
+        ],
+        "question": {
+            "text": "How do you render the App component in a React application?",
+            "codeSnippet": "const App = () => <div>Hello, world!</div>;"
+        },
+        "correctAnswer": "<App />"
+    },
+    "category": "react", // technical, python, react, javascript, typescript
+    "difficulty": "easy", // easy, hard
+    "your_name": "looyd", // Your name dud, Josh, Peter etc..
+    "your_github_url": "github.com/llo7d" // Link to your github
+}
+
+// 
+// Add your questions below:
+//
+
+
 [
     {
         "question": {
