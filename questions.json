@@ -101,5 +101,101 @@
         "difficulty": "hard",
         "your_name": "Yatochka",
         "your_github_url": "github.com/yatochka-dev"
+    },
+    {
+        "question": {
+            "options": [
+                "double_array[]",
+                "int[][]",
+                "String[][]",
+                "new Array"
+            ],
+            "question": {
+                "text": "How to declare a two-dimensional array in Java?",
+                "codeSnippet": " ages = { {1, 2, 3, 4}, {5, 6, 7} };"
+            },
+            "correctAnswer": "int[][]"
+        },
+        "category": "Java",
+        "difficulty": "easy",
+        "your_name": "Joelfm4",
+        "your_github_url": "github.com/joelfm4"
+    },
+    {
+        "question": {
+            "options": [
+                "=",
+                "like",
+                "==",
+                "as"
+            ],
+            "question": {
+                "text": "What is the correct syntax for creating an alias for a module?",
+                "codeSnippet": "import pandas ... pd"
+            },
+            "correctAnswer": "as"
+        },
+        "category": "Python",
+        "difficulty": "easy",
+        "your_name": "Joelfm4",
+        "your_github_url": "github.com/joelfm4"
+    },
+    {
+        "question": {
+            "options": [
+                "by",
+                "for",
+                "inside",
+                "from"
+            ],
+            "question": {
+                "text": "What is the correct syntax of importing only the person1 dictionary of the 'mymodule' module?",
+                "codeSnippet": "... mymodule import person1"
+            },
+            "correctAnswer": "from"
+        },
+        "category": "Python",
+        "difficulty": "easy",
+        "your_name": "Joelfm4",
+        "your_github_url": "github.com/joelfm4"
+    },
+    {
+        "question": {
+            "options": [
+                "x = lambda x:x",
+                "x = lambda x==x",
+                "x = lambda x=x",
+                "x = (lambda a return a)"
+            ],
+            "question": {
+                "text": "Create a lambda function that takes one parameter (a) and returns it.",
+                "codeSnippet": "x = ..."
+            },
+            "correctAnswer": "x = lambda x:x"
+        },
+        "category": "Python",
+        "difficulty": "easy",
+        "your_name": "Joelfm4",
+        "your_github_url": "github.com/joelfm4"
+    },
+    {
+        "question": {
+            "options": [
+                "print(len(fruits))",
+                "print(length(fruits))",
+                "print(fruits.len())",
+                "print(fruits.length())"
+            ],
+            "question": {
+                "text": "Correct syntax to print the number of items in the fruits tuple.",
+                "codeSnippet": "fruits = ('apple', 'banana', 'cherry')"
+            },
+            "correctAnswer": "print(len(fruits))"
+        },
+        "category": "Python",
+        "difficulty": "easy",
+        "your_name": "Joelfm4",
+        "your_github_url": "github.com/joelfm4"
     }
+
 ]
