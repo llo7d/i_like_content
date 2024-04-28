@@ -20,11 +20,9 @@
     "your_name": "looyd", // Your name dud, Josh, Peter etc..
     "your_github_url": "github.com/llo7d" // Link to your github
 }
-
 // 
 // Add your questions below:
 //
-
 [
     {
         "question": {
@@ -196,6 +194,98 @@
         "difficulty": "easy",
         "your_name": "Joelfm4",
         "your_github_url": "github.com/joelfm4"
+    },
+    {
+        "question": {
+            "options": [
+                "A. pop()",
+                "B. last()",
+                "C. remove()",
+                "D. shift()"
+            ],
+            "question": {
+                "text": "Which built-in method removes the last element from an array and returns that element?"
+            },
+            "correctAnswer": "A. pop()"
+        },
+        "category": "Javascript",
+        "difficulty": "easy",
+        "your_name": "Esteban Murcia",
+        "your_github_url": "github.com/esteban389"
+    },
+    {
+        "question": {
+            "options": [
+                "A. ==",
+                "B. ===",
+                "C. !=",
+                "D. !=="
+            ],
+            "question": {
+                "text": "Which operator is used to compare the value and datatype in JavaScript?"
+            },
+            "correctAnswer": "B. ==="
+        },
+        "category": "Javascript",
+        "difficulty": "easy",
+        "your_name": "Esteban Murcia",
+        "your_github_url": "github.com/esteban389"
+    },
+    {
+        "question": {
+            "options": [
+                "A. '12'",
+                "B. '327'",
+                "C. 327",
+                "D. '57'"
+            ],
+            "question": {
+                "text": "What is the result of the following expression?",
+                "codeSnippet": "3 + 2 + '7';"
+            },
+            "correctAnswer": "D. '57'"
+        },
+        "category": "Javascript",
+        "difficulty": "easy",
+        "your_name": "Esteban Murcia",
+        "your_github_url": "github.com/esteban389"
+    },
+    {
+        "question": {
+            "options": [
+                "A. 1",
+                "B. 3",
+                "C. undefined",
+                "D. NaN"
+            ],
+            "question": {
+                "text": "What will be the output of the following code?",
+                "codeSnippet": "var x = 0;\nfunction foo() {\n    x++;\n    this.x = x;\n    return foo;\n}\nvar bar = new foo()()();\nconsole.log(bar.x);"
+            },
+            "correctAnswer": "A. 1"
+        },
+        "category": "Javascript",
+        "difficulty": "easy",
+        "your_name": "Esteban Murcia",
+        "your_github_url": "github.com/esteban389"
+    },
+    {
+        "question": {
+            "options": [
+                "A. 'number'",
+                "B. 'string'",
+                "C. 'object'",
+                "D. 'undefined'"
+            ],
+            "question": {
+                "text": "What is the result of the following expression?",
+                "codeSnippet": "console.log(typeof typeof 1);"
+            },
+            "correctAnswer": "B. 'string'"
+        },
+        "category": "Javascript",
+        "difficulty": "easy",
+        "your_name": "Esteban Murcia",
+        "your_github_url": "github.com/esteban389"
     }
-
 ]
