@@ -1,7 +1,8 @@
-import './Newtab.css';
-import './Newtab.scss';
+import './css/Newtab.css';
+import './css/Newtab.scss';
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import Question from './Question';
 
 const Newtab = () => {
   const [question, setQuestion] = useState({
@@ -12,17 +13,57 @@ const Newtab = () => {
 
   const [url, setUrl] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const [questionId, setQuestionId] = useState(null);
-
-
 
   const supabase = createClient(
     'https://vdoqyjbnpwqkafxxssbb.supabase.co',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkb3F5amJucHdxa2FmeHhzc2JiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTEzNzIyMTUsImV4cCI6MjAyNjk0ODIxNX0.luuvoKY-udlAaD83Qf5pElsetmXVwPetr6C-v5gpjDg'
   );
 
-  useEffect(() => {
+  const fetchUnseenQuestion = async (seenQuestions, category, difficulty) => {
 
+    // Call the stored procedure to get the unseen question
+    let { data: questions, error } = await supabase
+      .rpc('get_unseen_question', { seen_ids: seenQuestions, question_category: category, question_difficulty: difficulty });
+
+
+    // We do this to display h4, if no questions are found. Redo later.
+    setQuestion(questions[0]);
+    console.log('Questions:', questions);
+
+    if (error) {
+      console.error('Error fetching questions:', error);
+      return;
+    }
+
+    if (!questions || questions.length === 0) {
+      console.error(
+        'No questions found for the specified category and difficulty'
+      );
+      setIsLoading(false);
+      return;
+    }
+
+    // The stored procedure returns only one question
+    const { id, question } = questions[0];
+
+    // Update the state with the question
+    setQuestion({
+      question: question.question,
+      options: question.options,
+      questionId: id,
+      correctAnswer: question.correctAnswer
+    });
+
+    // Set the loading state to false
+    setIsLoading(false);
+
+    console.log('Question:', question);
+
+    // Update the seen questions in chrome storage
+    // chrome.storage.local.set({ seenQuestions: [...seenQuestions, id] });
+  };
+
+  const handleRender = () => {
     // Get data from chrome storage
     chrome.storage.local.get(['category', 'difficulty', 'seenQuestions'], async (data) => {
       // Fetch the unseen question on page load
@@ -44,118 +85,14 @@ const Newtab = () => {
       // Set the state
       setUrl(hostname);
     });
+  }
 
+
+  useEffect(() => {
+    handleRender();
   }, []);
 
-  const fetchUnseenQuestion = async (seenQuestions, category, difficulty) => {
-
-    // Call the stored procedure to get the unseen question
-    let { data: questions, error } = await supabase
-      .rpc('get_unseen_question', { seen_ids: seenQuestions, question_category: category, question_difficulty: difficulty });
-
-
-    // We do this to display h4, if no questions are found. Redo later.
-    setQuestion(questions[0]);
-
-    if (error) {
-      console.error('Error fetching questions:', error);
-      return;
-    }
-
-    if (!questions || questions.length === 0) {
-      console.error(
-        'No questions found for the specified category and difficulty'
-      );
-      setIsLoading(false);
-      return;
-    }
-
-    // The stored procedure returns only one question
-    const { id, created_at, question: questionData } = questions[0];
-
-    setQuestionId(id);
-    // Update the state with the question
-    setQuestion(questionData);
-
-    // Set the loading state to false
-    setIsLoading(false);
-
-    console.log('Question:', questionData);
-
-    // Update the seen questions in chrome storage
-    // chrome.storage.local.set({ seenQuestions: [...seenQuestions, id] });
-
-  };
-
-
-
-  function Loading() {
-    return <div>Loading...</div>;
-  }
-
-  function Question({ question }) {
-
-    const [selectedOption, setSelectedOption] = useState(null);
-    const [redirecting, setRedirecting] = useState(false);
-    const [feedbackMessage, setFeedbackMessage] = useState('');
-
-    const checkAnswer = (option) => {
-      setSelectedOption(option);
-
-      if (option === question.correctAnswer) {
-        setFeedbackMessage('That is correct, redirecting...');
-      } else {
-        setFeedbackMessage('That was wrong... stop watching videos.. redirecting...');
-      }
-
-      // Get the current seenQuestions from chrome storage
-      chrome.storage.local.get(['seenQuestions'], function (data) {
-        let seenQuestions = data.seenQuestions || [];
-
-        // Add the current question id to seenQuestions
-        seenQuestions.push(questionId);
-
-        // Update the seen questions in chrome storage
-        chrome.storage.local.set({ seenQuestions: seenQuestions }, function () {
-          console.log('Seen questions updated in Chrome storage');
-        });
-      });
-
-      setRedirecting(true);
-
-      // Redirect the user to the last page they visited after 3 seconds
-      setTimeout(() => {
-        chrome.tabs.goBack();
-      }, 1500);
-    };
-
-    return (
-      <div>
-        <h2>{question.question.text}</h2>
-        {question.question.codeSnippet && <pre>{question.question.codeSnippet}</pre>}
-        {question.options.map((option, index) => (
-          <button
-            key={index}
-            onClick={() => checkAnswer(option)}
-            style={{
-              backgroundColor: selectedOption
-                ? option === question.correctAnswer
-                  ? 'green'
-                  : option === selectedOption
-                    ? 'red'
-                    : ''
-                : ''
-            }}
-          >
-            {option}
-          </button>
-        ))}
-        {redirecting && <p>{feedbackMessage}</p>}
-
-      </div>
-    );
-  }
-
+  if (isLoading) return <h1>Loading...</h1>;
 
   return (
     <div className="App">
@@ -167,9 +104,7 @@ const Newtab = () => {
         </h6> */}
         {/* <button onClick={handleClick}>Enter</button> */}
         <div>
-          {isLoading ? (
-            <Loading />
-          ) : question ? (
+          { question ? (
             <Question question={question} />
           ) : (
             <>
