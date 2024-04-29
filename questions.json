@@ -196,6 +196,43 @@
         "difficulty": "easy",
         "your_name": "Joelfm4",
         "your_github_url": "github.com/joelfm4"
+    },
+    {
+        "question": {
+            "options": [
+                "The value of 'x' remains unchanged",
+                "A 'Uncaught TypeError' is thrown",
+                "The value of 'x' becomes undefined",
+                "JavaScript creates a global variable named 'x'"
+            ],
+            "question": {
+                "text": "What is the output of the following code?",
+                "codeSnippet": "const x = 10; x = 20; console.log(x);"
+            },
+            "correctAnswer": "A 'Uncaught TypeError' is thrown"
+        },
+        "category": "JavaScript",
+        "difficulty": "easy",
+        "your_name": "SlowMoschen",
+        "your_github_url": "github.com/SlowMoschen"
+    },
+    {
+        "question": {
+            "options": [
+                "trim()",
+                "includes()",
+                "indexOf()",
+                "search()"
+            ],
+            "question": {
+                "text": "Which method do you use to check if 'Hello' is present in the given string'?",
+                "codeSnippet": "const str = 'Hello, world!';"
+            },
+            "correctAnswer": "includes()"
+        },
+        "category": "JavaScript",
+        "difficulty": "easy",
+        "your_name": "SlowMoschen",
+        "your_github_url": "github.com/SlowMoschen"
     }
-
 ]
