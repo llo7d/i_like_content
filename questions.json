@@ -196,6 +196,139 @@
         "difficulty": "easy",
         "your_name": "Joelfm4",
         "your_github_url": "github.com/joelfm4"
-    }
-
+    },
+    {
+        "question": {
+            "options": [
+                "The value of 'x' remains unchanged",
+                "A 'Uncaught TypeError' is thrown",
+                "The value of 'x' becomes undefined",
+                "JavaScript creates a global variable named 'x'"
+            ],
+            "question": {
+                "text": "What is the output of the following code?",
+                "codeSnippet": "const x = 10; x = 20; console.log(x);"
+            },
+            "correctAnswer": "A 'Uncaught TypeError' is thrown"
+        },
+        "category": "JavaScript",
+        "difficulty": "easy",
+        "your_name": "SlowMoschen",
+        "your_github_url": "github.com/SlowMoschen"
+    },
+    {
+        "question": {
+            "options": [
+                "trim()",
+                "includes()",
+                "indexOf()",
+                "search()"
+            ],
+            "question": {
+                "text": "Which method do you use to check if 'Hello' is present in the given string'?",
+                "codeSnippet": "const str = 'Hello, world!';"
+            },
+            "correctAnswer": "includes()"
+        },
+        "category": "JavaScript",
+        "difficulty": "easy",
+        "your_name": "SlowMoschen",
+        "your_github_url": "github.com/SlowMoschen"
+    },
+    {
+        "question": {
+            "options": [
+                "100, 20",
+                "100 km/h, 20 km",
+                "[100, 20]",
+                "[]"
+            ],
+            "question": {
+                "text": "What is the output of the variable 'speed' in the following code snippet?",
+                "codeSnippet": "let text = The car is driving with 100 km/h to the city which is 20 km away. let speed = text.match(/[0‐9]+/g); console.log(speed);"
+            },
+            "correctAnswer": "[100, 20]"
+        },
+        "category": "JavaScript",
+        "difficulty": "hard",
+        "your_name": "SlowMoschen",
+        "your_github_url": "github.com/SlowMoschen"
+    },
+    {
+        "question":{
+            "options":[
+                "A function that is passed as an argument to another function",
+                "A function that is called inside another function",
+                "A function which is called by clicking a button"
+                "A function that is called after another function",
+            ],
+  
+            "question":{
+                "text":"What is a callback function in JavaScript?",
+                "codeSnippet": null
+            },
+            "correctAnswer":"A function that is passed as an argument to another function",
+        },
+        "category":"JavaScript",
+        "difficulty":"easy",
+        "your_name":"SlowMoschen",
+        "your_github_url":"github.com/SlowMoschen"
+    },
+    {
+        "question": {
+            "options": [
+                "There is no difference, both are the same",
+                "p1 is a function and p2 is an object",
+                "p1 and p2 are both objects, but only p1 got a prototype",
+                "The properties of p2 can only be accessed via methods"
+            ],
+            "question": {
+                "text": "Where is the difference between p1 and p2, in the following code?",
+                "codeSnippet": "const P1 = function() { this.x = 1; }; class P2 { constructor() { this.x = 1; } } const p1 = new P1(); const p2 = new P2();"
+            },
+            "correctAnswer": "There is no difference, both are the same"
+        },
+        "category": "JavaScript",
+        "difficulty": "hard",
+        "your_name": "SlowMoschen",
+        "your_github_url": "github.com/SlowMoschen"
+    },
+    {
+        "question": {
+            "options": [
+                "useRef",
+                "useState",
+                "useEffect",
+                "useContext"
+            ],
+            "question": {
+                "text": "Whick hook is used to store the state of a component in React?",
+                "codeSnippet": null
+            },
+            "correctAnswer": "useState"
+        },
+        "category": "React",
+        "difficulty": "easy",
+        "your_name": "SlowMoschen",
+        "your_github_url": "github.com/SlowMoschen"
+    },
+    {
+        "question": {
+            "options": [
+                "by debouncing the function",
+                "using a timeout",
+                "implementing a custom hook with a useMemo hook",
+                "using a promise"
+            ],
+            "question": {
+                "text": "How can you prevent a function from being called multiple times in a short period of time in React?",
+                "codeSnippet": null
+            },
+            "correctAnswer": "by debouncing the function"
+        },
+        "category": "React",
+        "difficulty": "easy",
+        "your_name": "SlowMoschen",
+        "your_github_url": "github.com/SlowMoschen"
+    },
 ]
