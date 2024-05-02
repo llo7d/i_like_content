@@ -331,4 +331,23 @@
         "your_name": "SlowMoschen",
         "your_github_url": "github.com/SlowMoschen"
     },
+    {
+        "question": {
+            "options": [
+                "12",
+                "5",
+                "57",
+                "327"
+            ],
+            "question": {
+                "text": "What would be the result of 3+2+”7″?",
+                "codeSnippet": null
+            },
+            "correctAnswer": "57"
+        },
+        "category": "JavaScript",
+        "difficulty": "easy",
+        "your_name": "Daniel-Sean",
+        "your_github_url": "github.com/DSeanHD"
+    },
 ]
