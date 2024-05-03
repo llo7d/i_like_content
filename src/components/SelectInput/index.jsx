@@ -94,7 +94,7 @@ export const SelectInput = ({
         styles={colourStyles}
         placeholder=""
         components={{ Option, ...(SingleValue ? { SingleValue } : {}) }}
-        defaultValue={value}
+        value={value}
         onChange={onChange}
       />
     </div>

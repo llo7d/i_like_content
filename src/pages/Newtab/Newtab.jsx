@@ -77,7 +77,7 @@ const Newtab = () => {
     // Call the stored procedure to get the unseen question
     let { data: questions, error } = await supabase.rpc('get_unseen_question', {
       seen_ids: seenQuestions,
-      question_category: 'python',
+      question_category: category,
       question_difficulty: difficulty,
     });
     // We do this to display h4, if no questions are found. Redo later.
@@ -188,15 +188,14 @@ const Newtab = () => {
             <button
               key={index}
               onClick={() => checkAnswer(option)}
-              className={`question-choose-button flex justify-space-between ${
-                selectedOption
-                  ? option === question.correctAnswer
-                    ? 'active'
-                    : option === selectedOption
+              className={`question-choose-button flex justify-space-between ${selectedOption
+                ? option === question.correctAnswer
+                  ? 'active'
+                  : option === selectedOption
                     ? 'wrong'
                     : ''
-                  : ''
-              }`}
+                : ''
+                }`}
             >
               <div className="flex column-gap-8 items-center">
                 {!selectedOption && (
@@ -226,6 +225,7 @@ const Newtab = () => {
       </div>
     );
   }
+
   function pausePlugin(time = 1 * 60 * 60 * 1000) {
     // Get the current time
     const currentTime = new Date().getTime();
@@ -238,6 +238,7 @@ const Newtab = () => {
       console.log('Plugin paused for 1 hour');
     });
   }
+
   return (
     <div className="App">
       <div className="container w-full">
@@ -288,9 +289,10 @@ const Newtab = () => {
             marginTop: '92px',
           }}
         >
-          <span className="pause-button" onClick={() => pausePlugin()}>
+          {/* Adding this later */}
+          {/* <span className="pause-button" onClick={() => pausePlugin()}>
             Pause me for 1 hour
-          </span>
+          </span> */}
         </div>
       </div>
     </div>

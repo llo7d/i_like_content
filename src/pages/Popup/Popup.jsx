@@ -27,6 +27,9 @@ const CategoryOptions = [
   { value: 'react', label: 'React' },
 ];
 
+function isCheckboxChecked(list = [], value) {
+  return list.find((item) => item?.value === value);
+}
 const Popup = () => {
   const [difficulty, setDifficulty] = useState('');
   const [category, setCategory] = useState('');
@@ -99,6 +102,8 @@ const Popup = () => {
   };
 
   const handleSetcategory = (value) => {
+
+    console.log('value', value);
     setCategory(value);
 
     // Store the category inside chrome storage
@@ -174,7 +179,7 @@ const Popup = () => {
             }}
           >
             <SelectInput
-              value={category}
+              value={isCheckboxChecked(CategoryOptions, category)}
               options={CategoryOptions}
               label="Category"
               SingleValue={({ children, ...props }) => (
@@ -193,7 +198,7 @@ const Popup = () => {
               onChange={(selected) => handleSetcategory(selected.value)}
             />
             <SelectInput
-              value={difficulty}
+              value={isCheckboxChecked(DifficultyOptions, difficulty)}
               options={DifficultyOptions}
               label="Difficulty"
               SingleValue={({ children, ...props }) => (
@@ -287,9 +292,8 @@ const Popup = () => {
                   type="button"
                   onClick={handleAddDomain}
                   style={{
-                    color: `${
-                      newDomain ? 'var(--white-color)' : 'var(--dark-color-32)'
-                    }`,
+                    color: `${newDomain ? 'var(--white-color)' : 'var(--dark-color-32)'
+                      }`,
                   }}
                 >
                   Add
