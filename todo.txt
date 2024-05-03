@@ -1,11 +1,40 @@
 Todo:
 
 
-- Buttons popup not working ( )
-- Where are we grabing the questions from ( )
+- Turn green if correct, red if not ( X )
 
-- When paused, display it somewhere or remove the feature for now ( )
-- 
+
+- Redo the storing of seen ids in chrome storage afte a question has been answered correctly, not seen ( X )
+-> Double check as I think its sphagetti code (  )
+-> Rename everything to answeredIDs ( )
+-> Think about how to do the redirecting part after answering question ( )
+-> if question not answered correctly, dont add in seenIDs ( )
+
+- Go over the code again and understand wtf is going on ( )
+-> Loading not showing. ( X )
+
+- Create wireframe + send to ui designer for redesign ( )
+-> Pop up ( X )
+-> NewTab ( X )
+-> On first install ( )
+
+- Test request question based on the type of quiz & difficulty ( X )
+-> Have code be as a question and display accordingly ( X )
+-> Make it dynamic, if user changes to javascript etc..  ( X )
+-> Add more questions for each type & return a random one ( )
+
+- Test request questions based on the seen ids in chrome storage ( X )
+-> Create .rpc ( X)
+- Add/Remove urls ( X )
+-> Double check if works ( X )
+-> Exclude these domains from count ( X )
+--> Exclude works, but need better way I think ( X )
+--> If I add google.com it does not work, fixed ( X )
+---> but double check again how it works, as it seems to be working now ( X )
+
+- Get the favicon of url provided URL and display it ( X )
+
+
 
 Ideas:
 - See if the question is correct or not, turn green if is and red if not, allow only clicking once, redirect after ( )
