@@ -1,0 +1,61 @@
+.relative {
+  position: relative;
+}
+
+.switch {
+  position: relative;
+  cursor: pointer;
+  width: 51px;
+  height: 24px;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #272839;
+  border-radius: 100px;
+  transition: background-color 0.25s linear;
+  border: 1px solid #ffffff0f;
+}
+
+.switch:after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background-color: #fff;
+  top: 4px;
+  left: 4px;
+  transition: background-color 0.25s linear, transform 0.25s linear;
+}
+
+.switch-input {
+  display: none;
+}
+
+.switch-input:checked + .switch {
+  background-color: #03d0b0;
+}
+
+.switch-input:checked + .switch:after {
+  transform: translateX(25px);
+  background-color: white;
+}
+.switch-text {
+  position: absolute;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.200000003px;
+  text-align: left;
+  left: calc(100% - 8px);
+  color: #ffffff;
+  transition: all 0.25s linear;
+}
+
+.switch-input:checked + .switch .switch-text {
+  left: 8px;
+  transform: translate(0%, -50%);
+}
