@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Doopler Codes",
-  "description": "A extension that helps you to code and stop procasination. ",
+  "name": "i_like_content",
+  "description": "A extension that helps you to code and continue procasination.",
   "options_page": "options.html",
   "background": {
     "service_worker": "background.bundle.js"
