@@ -62,7 +62,9 @@ const Popup = () => {
     );
   }, []);
 
-  const handleAddDomain = () => {
+  const handleAddDomain = (e) => {
+    e.preventDefault();
+
     // Check if the URL is already blocked
     if (newDomain && !domains.includes(newDomain)) {
       setDomains([...domains, newDomain]);
@@ -272,7 +274,7 @@ const Popup = () => {
               </div>
             </div>
 
-            <div>
+            <form onSubmit={handleAddDomain}>
               <label htmlFor="excludeDomain" className="label text-base">
                 Exclude URL
               </label>
@@ -299,7 +301,7 @@ const Popup = () => {
                   Add
                 </button>
               </div>
-            </div>
+            </form>
 
             <div className="list-social">
               {Array.isArray(domains) &&

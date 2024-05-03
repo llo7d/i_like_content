@@ -1,11 +1,12 @@
 Todo:
 
-- fix popup.jsx ( )
+- fix popup.jsx ( X )
 - display questions from supabase ( X )
 
 
 - add the functionaliy for reset questions if none found ( )
+-> Also redo design so its prettier 
 
 - learn how to use git, branches n shit ( )
 - adding the paused time ( )
-- fix 2 critical vulorbilities before launchs
+- fix 2 critical vulorbilities before launchs ( )
