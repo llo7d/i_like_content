@@ -1,5 +1,9 @@
 Todo:
 
+
+- Buttons popup not working ( )
+- Where are we grabing the questions from ( )
+
 - When paused, display it somewhere or remove the feature for now ( )
 - 
 
