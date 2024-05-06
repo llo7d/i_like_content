@@ -74,6 +74,15 @@
   transition: 0.4s;
 }
 
+.text-base.text-dark-color-20 {
+  color: #666; /* Replace with your normal color */
+  transition: color 0.2s ease-in-out;
+}
+
+.text-base.text-dark-color-20:hover {
+  color: #333; /* Replace with your darker color */
+}
+
 /* .toggle-switch-checkbox:checked + .toggle-switch-slider {
   background-color: #2ab934;
 }

@@ -333,7 +333,9 @@ const Popup = () => {
         </main>
         <footer>
           <div className="flex justify-center items-center w-full">
-            <span className="text-base text-dark-color-20">Made by looyd</span>
+            <a href="https://github.com/llo7d" className="text-base text-dark-color-20 hover:text-dark-color-50 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+              Made by Looyd
+            </a>
           </div>
         </footer>
         {/* <div className="App-header"> */}

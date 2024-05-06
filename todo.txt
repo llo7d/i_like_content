@@ -10,3 +10,5 @@ Todo:
 - learn how to use git, branches n shit ( )
 - adding the paused time ( )
 - fix 2 critical vulorbilities before launchs ( )
+
+- if domain is a none .com and you add it we check for it, eg nextjs.org if user adds ()
