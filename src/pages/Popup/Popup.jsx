@@ -104,7 +104,6 @@ const Popup = () => {
   };
 
   const handleSetcategory = (value) => {
-
     console.log('value', value);
     setCategory(value);
 
@@ -143,7 +142,10 @@ const Popup = () => {
               <StarSVG />
               <div className="flex items-center">
                 <BookSVG />
-                <span
+                <a
+                  href="https://www.youtube.com/watch?v=your_video_id"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     fontFamily: 'Inter',
                     fontSize: '14px',
@@ -152,10 +154,13 @@ const Popup = () => {
                     textAlign: 'left',
                     paddingLeft: '4px',
                     color: '#ffffff',
+                    textDecoration: 'none',
                   }}
+                  onMouseEnter={(e) => (e.target.style.color = '#cccccc')}
+                  onMouseLeave={(e) => (e.target.style.color = '#ffffff')}
                 >
                   How it works?
-                </span>
+                </a>
               </div>
             </div>
             <Toggle
@@ -258,6 +263,7 @@ const Popup = () => {
                   />
                 </div>
 
+                {/* Show the percentage of the domain changes
                 <span
                   style={{
                     fontFamily: 'Inter',
@@ -270,7 +276,7 @@ const Popup = () => {
                   }}
                 >
                   {`${domainChanges} %`}
-                </span>
+                </span> */}
               </div>
             </div>
 
@@ -294,8 +300,9 @@ const Popup = () => {
                   type="button"
                   onClick={handleAddDomain}
                   style={{
-                    color: `${newDomain ? 'var(--white-color)' : 'var(--dark-color-32)'
-                      }`,
+                    color: `${
+                      newDomain ? 'var(--white-color)' : 'var(--dark-color-32)'
+                    }`,
                   }}
                 >
                   Add
@@ -333,7 +340,12 @@ const Popup = () => {
         </main>
         <footer>
           <div className="flex justify-center items-center w-full">
-            <a href="https://github.com/llo7d" className="text-base text-dark-color-20 hover:text-dark-color-50 transition-colors duration-200" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/llo7d"
+              className="text-base text-dark-color-20 hover:text-dark-color-50 transition-colors duration-200"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Made by Looyd
             </a>
           </div>
