@@ -1,14 +1,18 @@
-Todo:
-
-- fix popup.jsx ( X )
-- display questions from supabase ( X )
+Prep for launch here:
+https://developer.chrome.com/docs/webstore/publish
 
 
-- add the functionaliy for reset questions if none found ( )
--> Also redo design so its prettier 
+- Change icon ( X )
+- Double check codesnippet, text colours seem off ( )
+- Add questions for each catagory ( )
+- Check for default state question & difficulty ( )
 
-- learn how to use git, branches n shit ( )
+- Add the functionaliy for reset seen questions if none found ( )
+-> Also redo design so its prettier ( )
+
+
+POST LAUNCH:
 - adding the paused time ( )
-- fix 2 critical vulorbilities before launchs ( )
-
 - if domain is a none .com and you add it we check for it, eg nextjs.org if user adds ()
+
+
