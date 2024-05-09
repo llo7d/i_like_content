@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -28,25 +30,36 @@ async function addQuestions(questions) {
                 continue;
             }
 
-            console.log('Question added:', data);
+            console.log('Question added:', questions[i]);
         } catch (error) {
             console.error('Error adding question:', error);
         }
     }
 }
 
-// Usage
-const questions = [
-    {
-        question: {
+//@ts-ignore Usage
+const questions =
+    [
+        {
+            question: {
+                options: ["No error", "Missing async keyword", "Improper use of await", "Unnecessary semicolon"],
+                question: {
+                    text: "Identify the issue with this TypeScript async function:",
+                    codeSnippet: "function fetchData(): Promise<string> { return await 'Data'; }"
+                },
+                correctAnswer: "Missing async keyword"
+            }
 
+            ,
+            category: 'typescript',
+            difficulty: 'easy',
+            your_name: 'Looyd + AI',
+            your_github_url: 'github.com/llo7d'
         },
-        category: 'typescript',
-        difficulty: 'easy',
-        your_name: 'Looyd + AI',
-        your_github_url: 'github.com/llo7d'
-    },
-    // Add more question objects here
-];
 
-addQuestions(questions);
+
+
+    ]
+          
+
+    addQuestions(questions);
