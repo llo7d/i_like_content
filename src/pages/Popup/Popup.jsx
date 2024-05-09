@@ -20,11 +20,11 @@ const DifficultyOptions = [
 ];
 
 const CategoryOptions = [
-  { value: 'techy', label: 'Technical' },
+  { value: 'techy', label: 'Everything Tech' },
+  { value: 'react', label: 'React' },
+  { value: 'python', label: 'Python' },
   { value: 'javascript', label: 'Javascript' },
   { value: 'typescript', label: 'Typescript' },
-  { value: 'python', label: 'Python' },
-  { value: 'react', label: 'React' },
 ];
 
 function isCheckboxChecked(list = [], value) {
@@ -300,9 +300,8 @@ const Popup = () => {
                   type="button"
                   onClick={handleAddDomain}
                   style={{
-                    color: `${
-                      newDomain ? 'var(--white-color)' : 'var(--dark-color-32)'
-                    }`,
+                    color: `${newDomain ? 'var(--white-color)' : 'var(--dark-color-32)'
+                      }`,
                   }}
                 >
                   Add

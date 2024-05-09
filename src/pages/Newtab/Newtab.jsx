@@ -80,6 +80,8 @@ const Newtab = () => {
       question_category: category,
       question_difficulty: difficulty,
     });
+
+    // console.log(questions);
     // We do this to display h4, if no questions are found. Redo later.
 
     if (error) {
@@ -139,6 +141,7 @@ const Newtab = () => {
     }, [language, question?.question?.codeSnippet]);
 
     const checkAnswer = (option) => {
+
       setSelectedOption(option);
 
       if (option === question.correctAnswer) {
@@ -275,10 +278,23 @@ const Newtab = () => {
               />
             ) : (
               <>
-                <h2>No questions found. </h2>
-                <h2>
-                  Reset your seen id's counter and commit some new question
+                <h2 className="question-content">No questions found.</h2>
+                <h2 className="question-content">
+                  You have seen all questions. <a href="https://github.com/llo7d/i_like_content" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>Submit new questions</a>
                 </h2>
+                <div className="flex justify-center">
+                  <button
+                    className="question-choose-button flex justify-space-between"
+                    onClick={() => {
+                      chrome.storage.local.set({ seenQuestions: [] }, () => {
+                        alert('Questions reset');
+                        chrome.tabs.goBack();
+                      });
+                    }}
+                  >
+                    <span>Reset questions</span>
+                  </button>
+                </div>
               </>
             )}
           </div>
