@@ -4,16 +4,23 @@ https://developer.chrome.com/docs/webstore/publish
 
 - Change icon ( X )
 - Double check codesnippet, text colours seem off ( )
+
 - Add questions for each catagory ( )
+-> Tech ( )
+-> React ( )
+-> Python ( )
+-> Javascript ( )
+-> Typescript ( X )
+
+
 - Check for default state question & difficulty ( )
 
-- Add the functionaliy for reset seen questions if none found ( )
--> Also redo design so its prettier ( )
+- Add the functionaliy for reset seen questions if none found ( X )
+-> Also redo design so its prettier ( X )
 
 
 POST LAUNCH:
 - adding the paused time ( )
 - if domain is a none .com and you add it we check for it, eg nextjs.org if user adds ()
-
 - After question answer show correct question code snippet ( )
-
+- Make a pretty loader for when the questions are loading (  )

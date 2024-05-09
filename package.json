@@ -1,7 +1,6 @@
 {
   "name": "Learn to code with Chrome Extension",
   "version": "0.0.1",
-  // "type": "module",
   "description": "A extension that helps you learn to code",
   "license": "MIT",
   "repository": {
