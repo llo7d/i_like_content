@@ -28,7 +28,7 @@ chrome.storage.local.get(
   }
 );
 
-// Listen for changes to Chrome storage to update the domainChanges value if it changes
+// I think this might not be needed, lets double check later: Listen for changes to Chrome storage to update the domainChanges value if it changes
 chrome.storage.onChanged.addListener(function (changes, namespace) {
   if (changes.domainChanges) {
     domainChanges = changes.domainChanges.newValue;

@@ -10,9 +10,14 @@ import prettier from 'prettier';
 import parserBabel from 'prettier/parser-babel'; // Cần parser này cho JavaScript
 
 const CodeSyntaxHighlighter = ({
-  language = 'javascript',
+  language = 'react',
   codeString = '',
 }) => {
+  const formattedCodeString = prettier.format(codeString, {
+    parser: 'babel',
+    plugins: [parserBabel],
+  });
+
   return (
     <SyntaxHighlighter
       language={language}
@@ -22,11 +27,10 @@ const CodeSyntaxHighlighter = ({
         backgroundColor: 'transparent',
       }}
     >
-      {codeString}
+      {formattedCodeString}
     </SyntaxHighlighter>
   );
 };
-
 const Newtab = () => {
   const [question, setQuestion] = useState({
     question: 'Loading...',

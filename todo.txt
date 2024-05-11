@@ -4,6 +4,9 @@ https://developer.chrome.com/docs/webstore/publish
 
 - Change icon ( X )
 - Double check codesnippet, text colours seem off ( )
+- clean up unneeded code, like background.js etc.. ()
+- clean up questions, seems like some questions have a semicolon issue? Missing semicolon. (1:12)
+
 
 - Add questions for each catagory ( )
 -> Tech ( )
