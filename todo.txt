@@ -3,9 +3,9 @@ https://developer.chrome.com/docs/webstore/publish
 
 
 - Change icon ( X )
-- Double check codesnippet, text colours seem off ( )
 - clean up unneeded code, like background.js etc.. ()
-- clean up questions, seems like some questions have a semicolon issue? Missing semicolon. (1:12)
+- clean up questions, seems like some questions have a semicolon issue? ( )
+-> Fixed it by adding backticks `import pandas ... pd`, fix it for all other questions where this happens ( )
 
 
 - Add questions for each catagory ( )
@@ -15,11 +15,12 @@ https://developer.chrome.com/docs/webstore/publish
 -> Javascript ( )
 -> Typescript ( X )
 
-
 - Check for default state question & difficulty ( )
 
 - Add the functionaliy for reset seen questions if none found ( X )
 -> Also redo design so its prettier ( X )
+
+------ FINISH ASAP & Work on Roby Landing page ------
 
 
 POST LAUNCH:
@@ -27,3 +28,4 @@ POST LAUNCH:
 - if domain is a none .com and you add it we check for it, eg nextjs.org if user adds ()
 - After question answer show correct question code snippet ( )
 - Make a pretty loader for when the questions are loading (  )
+- rewrite the CodeSyntaxHighlighter to also display python more accurately ( )
