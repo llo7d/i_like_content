@@ -4,8 +4,8 @@ https://developer.chrome.com/docs/webstore/publish
 
 - Change icon ( X )
 - clean up unneeded code, like background.js etc.. ()
-- clean up questions, seems like some questions have a semicolon issue? ( )
--> Fixed it by adding backticks `import pandas ... pd`, fix it for all other questions where this happens ( )
+- clean up questions, seems like some questions have a semicolon issue? ( X )
+-> Fixed it by adding backticks `import pandas ... pd`, fix it for all other questions where this happens ( X )
 
 
 - Add questions for each catagory ( )
