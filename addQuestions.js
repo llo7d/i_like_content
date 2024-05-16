@@ -43,12 +43,12 @@ const questions =
 
         {
             question: {
-                options: ["Incorrect use of ternary operator", "No error", "Missing return in else", "Misplaced JSX"],
+                options: ["No error", "Attempting to modify a tuple", "Syntax error", "Name error"],
                 question: {
-                    text: "What is wrong with this conditional rendering in React?",
-                    codeSnippet: "{isLoggedIn ? <Welcome /> : <h1>Please log in</h1>}"
+                    text: "What is wrong with this attempt to modify a tuple in Python?",
+                    codeSnippet: "tuple = (1, 2, 3)\ntuple[1] = 4"
                 },
-                correctAnswer: "No error"
+                correctAnswer: "Attempting to modify a tuple"
             }
             ,
             category: 'python',
@@ -56,8 +56,6 @@ const questions =
             your_name: 'Looyd + AI',
             your_github_url: 'github.com/llo7d'
         },
-
-
 
     ]
 

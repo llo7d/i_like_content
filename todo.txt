@@ -10,7 +10,7 @@ https://developer.chrome.com/docs/webstore/publish
 - Add questions for each catagory ( )
 -> Tech ( )
 -> React (X) shit questions but done  
--> Python ( )
+-> Python ( X )
 -> Javascript ( )
 -> Typescript ( X ) shit questions but done  
 
