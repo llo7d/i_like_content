@@ -43,41 +43,20 @@ const questions =
 
         {
             question: {
-                options: ["Missing return statement", "Incorrect JSX format", "Extra div element", "No error"],
+                options: ["Incorrect use of ternary operator", "No error", "Missing return in else", "Misplaced JSX"],
                 question: {
-                    text: "Spot the issue in the React component code snippet:",
-                    codeSnippet: "function Welcome() { <h1>Hello, world!</h1> }"
+                    text: "What is wrong with this conditional rendering in React?",
+                    codeSnippet: "{isLoggedIn ? <Welcome /> : <h1>Please log in</h1>}"
                 },
-                correctAnswer: "Missing return statement"
+                correctAnswer: "No error"
             }
-
             ,
-            category: 'react',
+            category: 'python',
             difficulty: 'easy',
             your_name: 'Looyd + AI',
             your_github_url: 'github.com/llo7d'
         },
 
-        {
-            question: {
-                options: [
-                    "useState",
-                    "useEffect",
-                    "setCount",
-                    "count"
-                ],
-                question: {
-                    text: "What needs to be corrected in the following code snippet?",
-                    codeSnippet: "function Counter() {\n  const [count, setCount] = useState(0);\n  \n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>Click me</button>\n    </div>\n  );\n}"
-                },
-                correctAnswer: "setCount"
-            }
-            ,
-            category: 'react',
-            difficulty: 'easy',
-            your_name: 'Looyd + AI',
-            your_github_url: 'github.com/llo7d'
-        },
 
 
     ]
