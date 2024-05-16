@@ -40,46 +40,15 @@ async function addQuestions(questions) {
 //@ts-ignore Usage
 const questions =
     [
-        {
-            question: {
-                options: ["HTML", "JSX", "XML", "JavaScript"],
-                question: {
-                    text: "React components are typically written in which syntax that looks similar to HTML?",
-                    codeSnippet: ""
-                },
-                correctAnswer: "JSX"
-            }
-            ,
-            category: 'react',
-            difficulty: 'easy',
-            your_name: 'Looyd + AI',
-            your_github_url: 'github.com/llo7d'
-        },
 
         {
             question: {
-                options: ["States", "Props", "Methods", "Classes"],
+                options: ["Missing return statement", "Incorrect JSX format", "Extra div element", "No error"],
                 question: {
-                    text: "Which React feature is used for passing data to components from outside?",
-                    codeSnippet: "function Welcome(____) { return <h1>Hello, {____.name}</h1>; }"
+                    text: "Spot the issue in the React component code snippet:",
+                    codeSnippet: "function Welcome() { <h1>Hello, world!</h1> }"
                 },
-                correctAnswer: "Props"
-            }
-            ,
-            category: 'react',
-            difficulty: 'easy',
-            your_name: 'Looyd + AI',
-            your_github_url: 'github.com/llo7d'
-        },
-
-        {
-            question: {
-                options: ["state", "setState", "useState", "All of the above"],
-                question: {
-                    text: "Which hook is used in functional components for managing state?",
-                    codeSnippet: "const [count, setCount] = _____(0);"
-                },
-                correctAnswer: "useState"
+                correctAnswer: "Missing return statement"
             }
 
             ,
@@ -91,30 +60,18 @@ const questions =
 
         {
             question: {
-                options: ["onClick", "onHandle", "onEvent", "handleClick"],
+                options: [
+                    "useState",
+                    "useEffect",
+                    "setCount",
+                    "count"
+                ],
                 question: {
-                    text: "Which attribute is commonly used in React to handle click events?",
-                    codeSnippet: "<button on____={handleClick()}>Buy 🍕</button>"
+                    text: "What needs to be corrected in the following code snippet?",
+                    codeSnippet: "function Counter() {\n  const [count, setCount] = useState(0);\n  \n  return (\n    <div>\n      <p>You clicked {count} times</p>\n      <button onClick={() => setCount(count + 1)}>Click me</button>\n    </div>\n  );\n}"
                 },
-                correctAnswer: "onClick"
+                correctAnswer: "setCount"
             }
-            ,
-            category: 'react',
-            difficulty: 'easy',
-            your_name: 'Looyd + AI',
-            your_github_url: 'github.com/llo7d'
-        },
-
-        {
-            question: {
-                options: ["key", "id", "data-key", "index"],
-                question: {
-                    text: "What should be given to elements inside a map() function to maintain their identity?",
-                    codeSnippet: "items.map((item) => <li key={item.id}><h2>{item.name}</h2><p>{item.description}</p></li>);"
-                },
-                correctAnswer: "key"
-            }
-
             ,
             category: 'react',
             difficulty: 'easy',
@@ -129,30 +86,3 @@ const questions =
 addQuestions(questions);
 
 
-
-{
-    "options": [
-        "=",
-        "like",
-        "==",
-        "as"
-    ],
-        "question": {
-        "text": "What is the correct syntax for creating an alias for a module?",
-            "codeSnippet": "import pandas pd"
-    },
-    "correctAnswer": "as"
-}
-{
-    "options": [
-        "print(len(fruits))",
-        "print(length(fruits))",
-        "print(fruits.len())",
-        "print(fruits.length())"
-    ],
-        "question": {
-        "text": "Correct syntax to print the number of items in the fruits tuple.",
-            "codeSnippet": "fruits = ('apple', 'banana', 'cherry')"
-    },
-    "correctAnswer": "print(len(fruits))"
-}

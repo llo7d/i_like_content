@@ -31,6 +31,7 @@ const CodeSyntaxHighlighter = ({
     </SyntaxHighlighter>
   );
 };
+
 const Newtab = () => {
   const [question, setQuestion] = useState({
     question: 'Loading...',
@@ -180,56 +181,69 @@ const Newtab = () => {
 
     return (
       <div>
-        <div className="question-content">{question.question.text}</div>
-        {question.question.codeSnippet && (
-          <div className="code-string scroll">
-            <div className="code-snippet">codesnippet</div>
-            <CodeSyntaxHighlighter
-              codeString={formattedCode}
-              language={language}
-            />
-          </div>
-        )}
+        <div>
+          <div className="question-content">{question.question.text}</div>
+          {question.question.codeSnippet && (
+            <div className="code-string scroll">
+              <div className="code-snippet">codesnippet</div>
+              {/* Integrate the solution here */}
+              <SyntaxHighlighter
+                language="javascript"
+                style={atomOneDark}
+                customStyle={{
+                  backgroundColor: 'transparent', // Remove background color
+                  padding: '0', // Remove padding
+                  margin: '0', // Remove margin
+                  fontSize: 'inherit', // Inherit font size
+                }}
+              >
+                {question.question.codeSnippet}
+              </SyntaxHighlighter>
 
-        <div className="question-choose">
-          {question.options.map((option, index) => (
-            <button
-              key={index}
-              onClick={() => checkAnswer(option)}
-              className={`question-choose-button flex justify-space-between ${selectedOption
-                ? option === question.correctAnswer
-                  ? 'active'
-                  : option === selectedOption
-                    ? 'wrong'
-                    : ''
-                : ''
-                }`}
-            >
-              <div className="flex column-gap-8 items-center">
-                {!selectedOption && (
-                  <div className="check-box">
-                    <input
-                      type="checkbox"
-                      name="answer"
-                      id={`answer-${index}`}
-                      defaultChecked={option === selectedOption}
-                    />
-                    <label htmlFor={`answer-${index}`}></label>
-                  </div>
-                )}
-                {option === question.correctAnswer && selectedOption && (
-                  <CheckCirClrkSVG />
-                )}
-                {option !== question.correctAnswer && selectedOption && (
-                  <UnCheckCirClrkSVG />
-                )}
-                <span>{option}</span>
-              </div>
-            </button>
-          ))}
+            </div>
+          )}
+
+          <div className="question-choose">
+            {question.options.map((option, index) => (
+              <button
+                key={index}
+                onClick={() => checkAnswer(option)}
+                className={`question-choose-button flex justify-space-between ${selectedOption
+                  ? option === question.correctAnswer
+                    ? 'active'
+                    : option === selectedOption
+                      ? 'wrong'
+                      : ''
+                  : ''
+                  }`}
+              >
+                <div className="flex column-gap-8 items-center">
+                  {!selectedOption && (
+                    <div className="check-box">
+                      <input
+                        type="checkbox"
+                        name="answer"
+                        id={`answer-${index}`}
+                        defaultChecked={option === selectedOption}
+                      />
+                      <label htmlFor={`answer-${index}`}></label>
+                    </div>
+                  )}
+                  {option === question.correctAnswer && selectedOption && (
+                    <CheckCirClrkSVG />
+                  )}
+                  {option !== question.correctAnswer && selectedOption && (
+                    <UnCheckCirClrkSVG />
+                  )}
+                  <span>{option}</span>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {redirecting && <p>{feedbackMessage}</p>}
         </div>
 
-        {redirecting && <p>{feedbackMessage}</p>}
       </div>
     );
   }
