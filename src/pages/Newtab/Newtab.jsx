@@ -26,18 +26,21 @@ const Newtab = () => {
 
 
   useEffect(() => {
-    // Get data from chrome storage
-    chrome.storage.local.get(
-      ['category', 'difficulty', 'seenQuestions'],
-      async (data) => {
-        // Fetch the unseen question on page load
-        await fetchUnseenQuestion(
-          data.seenQuestions,
-          data.category,
-          data.difficulty
-        );
-      }
-    );
+    try {
+      // Get data from chrome storage
+      chrome.storage.local.get(
+        ['category', 'seenQuestions'],
+        async (data) => {
+          // Fetch the unseen question on page load
+          await fetchUnseenQuestion(
+            data.seenQuestions,
+            data.category,
+          );
+        }
+      );
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
 
     // Simply the URL to display
     chrome.storage.local.get('url', (data) => {
@@ -54,13 +57,13 @@ const Newtab = () => {
     });
   }, []);
 
-  const fetchUnseenQuestion = async (seenQuestions, category, difficulty) => {
+  const fetchUnseenQuestion = async (seenQuestions, category) => {
 
     // Call the stored procedure to get the unseen question
-    let { data: questions, error } = await supabase.rpc('get_unseen_question', {
+    // Call the stored procedure to get the unseen question
+    let { data: questions, error } = await supabase.rpc('get_question', {
       seen_ids: seenQuestions,
       question_category: category,
-      question_difficulty: difficulty,
     });
 
     if (error) {
@@ -224,15 +227,14 @@ const Newtab = () => {
       <div className="container w-full">
         <header className="App-header">
           <div className="flex items-center justify-space-between w-full mb-24">
-            {originQuestionData?.category && originQuestionData?.difficulty && (
+            {originQuestionData?.category && (
               <div className="flex column-gap-8 items-center">
                 <span className="question-category">
-                  {originQuestionData?.category}
+                  {originQuestionData?.category === 'techy' ? 'Everything Tech' : originQuestionData?.category}
                 </span>
-                <span className="question-dot"></span>
-                <span className="question-level">
-                  {originQuestionData?.difficulty}
-                </span>
+
+                {/* <span className="question-dot"></span> */}
+
               </div>
             )}
             <a

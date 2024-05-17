@@ -8,7 +8,7 @@ chrome.runtime.onInstalled.addListener(function () {
     difficulty: 'easy',
     category: 'javascript',
     domainChanges: 10,
-    excludedDomains: ['gmail', 'slack', 'stackoverflow', 'hackernews'],
+    excludedDomains: ['gmail', 'stackoverflow', 'hackernews'],
     seenQuestions: [],
   });
 });
@@ -27,7 +27,7 @@ chrome.storage.local.get(
   }
 );
 
-// I think this might not be needed, lets double check later: Listen for changes to Chrome storage to update the domainChanges value if it changes
+// Listen for changes to Chrome storage to update the domainChanges value if it changes
 chrome.storage.onChanged.addListener(function (changes, namespace) {
   if (changes.domainChanges) {
     domainChanges = changes.domainChanges.newValue;
