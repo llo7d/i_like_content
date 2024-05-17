@@ -25,3 +25,6 @@ secrets.*.js
 
 .env.local
 .env
+
+build.zip
+src.zip

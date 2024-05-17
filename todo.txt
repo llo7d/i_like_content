@@ -2,24 +2,10 @@ Prep for launch here:
 https://developer.chrome.com/docs/webstore/publish
 
 
-- Change icon ( X )
-- clean up unneeded code, like background.js etc.. ( X )
-- Code is not being formatted corretcly in some cases, need to adjust it manually like a pesent, using \n  ( X )
-- Double check that reset seen questions works ( X )
-
-- maybe remove difficulty button for now as I dont have questions there anyway? ( X )
-
-- Add questions for each catagory (X )
--> Tech (X)
--> React (X) shit questions but done  
--> Python ( X )
--> Javascript ( X )
--> Typescript ( X ) shit questions but done  
---> Did it, but probably should add more.
-
 - Check for default state question & difficulty ( )
 
-- Make hot it works video ( X )
+- Launch the mf ( )
+
 
 ------ FINISH ASAP & Work on Roby Landing page ------
 

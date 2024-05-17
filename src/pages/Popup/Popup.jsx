@@ -134,7 +134,7 @@ const Popup = () => {
               <div className="flex items-center">
                 <BookSVG />
                 <a
-                  href="https://www.youtube.com/watch?v=your_video_id"
+                  href="https://youtu.be/HxFhqbqVTyE"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
