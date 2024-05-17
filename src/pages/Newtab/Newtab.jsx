@@ -1,36 +1,11 @@
 import './Newtab.css';
 import './Newtab.scss';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import CheckCirClrkSVG from '../../components/Check-Circle';
 import UnCheckCirClrkSVG from '../../components/UnCheck-Circle';
-import prettier from 'prettier';
-import parserBabel from 'prettier/parser-babel'; // Cần parser này cho JavaScript
-
-const CodeSyntaxHighlighter = ({
-  language = 'react',
-  codeString = '',
-}) => {
-  const formattedCodeString = prettier.format(codeString, {
-    parser: 'babel',
-    plugins: [parserBabel],
-  });
-
-  return (
-    <SyntaxHighlighter
-      language={language}
-      style={atomOneDark}
-      showLineNumbers
-      customStyle={{
-        backgroundColor: 'transparent',
-      }}
-    >
-      {formattedCodeString}
-    </SyntaxHighlighter>
-  );
-};
 
 const Newtab = () => {
   const [question, setQuestion] = useState({
@@ -80,15 +55,13 @@ const Newtab = () => {
   }, []);
 
   const fetchUnseenQuestion = async (seenQuestions, category, difficulty) => {
+
     // Call the stored procedure to get the unseen question
     let { data: questions, error } = await supabase.rpc('get_unseen_question', {
       seen_ids: seenQuestions,
       question_category: category,
       question_difficulty: difficulty,
     });
-
-    // console.log(questions);
-    // We do this to display h4, if no questions are found. Redo later.
 
     if (error) {
       console.error('Error fetching questions:', error);
@@ -113,11 +86,6 @@ const Newtab = () => {
 
     // Set the loading state to false
     setIsLoading(false);
-
-    console.log('Question:', questionData);
-
-    // Update the seen questions in chrome storage
-    // chrome.storage.local.set({ seenQuestions: [...seenQuestions, id] });
   };
 
   function Loading() {
@@ -125,51 +93,41 @@ const Newtab = () => {
   }
 
   function Question({ question, language = 'javascript' }) {
-    console.log('🚀 ~ Question ~ language:', language);
-    console.log('🚀 ~ Question ~ question:', question);
+
+    console.log('🚀 ~ Look at my rocket ~ language:', language);
+
     const [selectedOption, setSelectedOption] = useState(null);
     const [redirecting, setRedirecting] = useState(false);
     const [feedbackMessage, setFeedbackMessage] = useState('');
-
-    const formattedCode = useMemo(() => {
-      try {
-        if (language === 'javascript' && question?.question?.codeSnippet) {
-          return prettier.format(question?.question?.codeSnippet, {
-            parser: 'babel',
-            plugins: [parserBabel],
-          });
-        }
-        return question?.question?.codeSnippet;
-      } catch (error) {
-        console.error('Error formatting code:', error);
-        return question?.question?.codeSnippet; // Trả về code gốc nếu có lỗi
-      }
-    }, [language, question?.question?.codeSnippet]);
 
     const checkAnswer = (option) => {
 
       setSelectedOption(option);
 
       if (option === question.correctAnswer) {
+
+        // Add the question to the seen/answered correctly questions
+        console.log('Adding to correctly answered questions', questionId);
+
+        chrome.storage.local.get(['seenQuestions'], function (data) {
+          let seenQuestions = data.seenQuestions || [];
+
+          seenQuestions.push(questionId);
+
+          // Update the seen questions in chrome storage
+          chrome.storage.local.set({ seenQuestions }, function () {
+            console.log(questionId + 'ID questions added to correctly answered in Chrome storage');
+          });
+        });
+
         setFeedbackMessage('That is correct, redirecting...');
       } else {
+
         setFeedbackMessage(
-          'That was wrong... stop watching videos.. redirecting...'
+          'That was wrong, I will show you this question again. Redirecting...'
         );
       }
 
-      // Get the current seenQuestions from chrome storage
-      chrome.storage.local.get(['seenQuestions'], function (data) {
-        let seenQuestions = data.seenQuestions || [];
-
-        // Add the current question id to seenQuestions
-        seenQuestions.push(questionId);
-
-        // Update the seen questions in chrome storage
-        chrome.storage.local.set({ seenQuestions }, function () {
-          console.log('Seen questions updated in Chrome storage');
-        });
-      });
 
       setRedirecting(true);
 
@@ -186,15 +144,14 @@ const Newtab = () => {
           {question.question.codeSnippet && (
             <div className="code-string scroll">
               <div className="code-snippet">codesnippet</div>
-              {/* Integrate the solution here */}
               <SyntaxHighlighter
                 language="javascript"
                 style={atomOneDark}
                 customStyle={{
-                  backgroundColor: 'transparent', // Remove background color
-                  padding: '0', // Remove padding
-                  margin: '0', // Remove margin
-                  fontSize: 'inherit', // Inherit font size
+                  backgroundColor: 'transparent',
+                  padding: '0',
+                  margin: '0',
+                  fontSize: 'inherit',
                 }}
               >
                 {question.question.codeSnippet}
@@ -248,6 +205,7 @@ const Newtab = () => {
     );
   }
 
+  // To be added in the future
   function pausePlugin(time = 1 * 60 * 60 * 1000) {
     // Get the current time
     const currentTime = new Date().getTime();
@@ -277,7 +235,6 @@ const Newtab = () => {
                 </span>
               </div>
             )}
-            {/* open link github*/}
             <a
               className="question-created"
               href={`http://${originQuestionData?.your_github_url}`}
@@ -299,7 +256,7 @@ const Newtab = () => {
               <>
                 <h2 className="question-content">No questions found.</h2>
                 <h2 className="question-content">
-                  You have seen all questions. <a href="https://github.com/llo7d/i_like_content/issues" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>Submit new questions</a>
+                  You have answered all questions. <a href="https://github.com/llo7d/i_like_content/issues" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>Help by Submiting new questions</a>
                 </h2>
                 <div className="flex justify-center">
                   <button
@@ -311,7 +268,7 @@ const Newtab = () => {
                       });
                     }}
                   >
-                    <span>Reset seen questions</span>
+                    <span>Reset questions</span>
                   </button>
                 </div>
               </>

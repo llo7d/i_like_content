@@ -7,6 +7,8 @@ https://developer.chrome.com/docs/webstore/publish
 - Code is not being formatted corretcly in some cases, need to adjust it manually like a pesent, using \n  ( )
 - Double check that reset seen questions works ( )
 
+- maybe remove difficulty button for now as I dont have questions there anyway? ( ba)
+
 - Add questions for each catagory (X )
 -> Tech (X)
 -> React (X) shit questions but done  
@@ -18,9 +20,7 @@ https://developer.chrome.com/docs/webstore/publish
 - Check for default state question & difficulty ( )
 
 
-
 ------ FINISH ASAP & Work on Roby Landing page ------
-
 
 POST LAUNCH:
 - adding the paused time ( )

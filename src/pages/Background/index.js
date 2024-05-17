@@ -19,7 +19,6 @@ chrome.storage.local.get(
   function (result) {
     // Set domainChanges to the stored value or default to 15
     domainChanges = result.domainChanges ?? 1;
-    console.log('🚀 ~ domainChanges:', domainChanges);
 
     // If isPluginActive is undefined, set it to true
     if (result.isPluginActive === undefined) {
@@ -42,7 +41,6 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     const url = new URL(changeInfo.url);
     const domain = url.hostname;
 
-    console.log('changeInfo', changeInfo);
     // If domain name ends with /newtab.htm ignore it
     if (
       changeInfo.url.includes('newtab.html') ||
@@ -68,14 +66,11 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         ) {
           domainChangeCounter++;
 
-          console.log('Domain change counter:', domainChangeCounter);
-          console.log('Domain changes:', domainChanges);
-          console.log('pausedTime:', result?.pausedTime);
-          // paused time > time now then do not open new tab
-          if (result.pausedTime && result.pausedTime > new Date().getTime()) {
-            console.log('Plugin is paused');
-            return;
-          }
+          // Addin g this in future 
+          // if (result.pausedTime && result.pausedTime > new Date().getTime()) {
+          //   console.log('Plugin is paused');
+          //   return;
+          // }
 
           // If the domainChangeCounter reaches the domainChanges value, reset the counter and open a new tab
           if (domainChangeCounter >= domainChanges) {
