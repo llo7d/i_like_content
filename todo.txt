@@ -3,21 +3,21 @@ https://developer.chrome.com/docs/webstore/publish
 
 
 - Change icon ( X )
-- clean up unneeded code, like background.js etc.. ()
+- clean up unneeded code, like background.js etc.. ( )
 - Code is not being formatted corretcly in some cases, need to adjust it manually like a pesent, using \n  ( )
+- Double check that reset seen questions works ( )
 
-
-- Add questions for each catagory ( )
--> Tech ( )
+- Add questions for each catagory (X )
+-> Tech (X)
 -> React (X) shit questions but done  
 -> Python ( X )
--> Javascript ( )
+-> Javascript ( X )
 -> Typescript ( X ) shit questions but done  
+--> Did it, but probably should add more.
 
 - Check for default state question & difficulty ( )
 
-- Add the functionaliy for reset seen questions if none found ( X )
--> Also redo design so its prettier ( X )
+
 
 ------ FINISH ASAP & Work on Roby Landing page ------
 

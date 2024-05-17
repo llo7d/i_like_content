@@ -43,19 +43,22 @@ const questions =
 
         {
             question: {
-                options: ["No error", "Attempting to modify a tuple", "Syntax error", "Name error"],
+                options: ["var", "let", "const", "All of the above"],
                 question: {
-                    text: "What is wrong with this attempt to modify a tuple in Python?",
-                    codeSnippet: "tuple = (1, 2, 3)\ntuple[1] = 4"
+                    text: "Which keywords can be used to declare variables in JavaScript?",
+                    codeSnippet: "var variable1 = \"I'm a var variable\";\nlet variable2 = \"I'm a let variable\";\nconst variable3 = \"I'm a const variable\";"
                 },
-                correctAnswer: "Attempting to modify a tuple"
+                correctAnswer: "All of the above"
             }
+
             ,
-            category: 'python',
+            category: 'techy',
             difficulty: 'easy',
             your_name: 'Looyd + AI',
             your_github_url: 'github.com/llo7d'
         },
+
+
 
     ]
 

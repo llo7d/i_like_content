@@ -299,7 +299,7 @@ const Newtab = () => {
               <>
                 <h2 className="question-content">No questions found.</h2>
                 <h2 className="question-content">
-                  You have seen all questions. <a href="https://github.com/llo7d/i_like_content" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>Submit new questions</a>
+                  You have seen all questions. <a href="https://github.com/llo7d/i_like_content/issues" target="_blank" rel="noopener noreferrer" style={{ color: 'white' }}>Submit new questions</a>
                 </h2>
                 <div className="flex justify-center">
                   <button
@@ -311,7 +311,7 @@ const Newtab = () => {
                       });
                     }}
                   >
-                    <span>Reset questions</span>
+                    <span>Reset seen questions</span>
                   </button>
                 </div>
               </>
