@@ -4,11 +4,11 @@
   <p align="center">
     A chrome plugin that helps you watch content and learn something while your doing it
     <br />
-    <a href="https://youtu.be/OJVOkqCfaKw">See how I made it (Episode 1) </a>
+    <a href="https://youtu.be/HxFhqbqVTyE"> See how the plugin works here </a>
     <br />
     ·
     <br />
-    <a href="https://youtu.be/dZfTGpOufg0"> Episode 2 (Comming soon) </a>
+    <a href="https://youtu.be/OJVOkqCfaKw">See how I made it (Episode 1) </a>
   </p>
 </div>
 
