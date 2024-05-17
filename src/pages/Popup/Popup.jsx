@@ -31,7 +31,6 @@ function isCheckboxChecked(list = [], value) {
   return list.find((item) => item?.value === value);
 }
 const Popup = () => {
-  const [difficulty, setDifficulty] = useState('');
   const [category, setCategory] = useState('');
   const [isPluginActive, setIsPluginActive] = useState(false);
   const [domainChanges, setDomainChanges] = useState(10);
@@ -44,14 +43,12 @@ const Popup = () => {
     // Load and set defaults
     chrome.storage.local.get(
       [
-        'difficulty',
         'category',
         'isPluginActive',
         'domainChanges',
         'excludedDomains',
       ],
       function (result) {
-        setDifficulty(result.difficulty);
         setCategory(result.category);
         setIsPluginActive(result.isPluginActive);
         setDomainChanges(result.domainChanges);
@@ -96,12 +93,6 @@ const Popup = () => {
     chrome.storage.local.set({ domainChanges: value });
   };
 
-  const handleSetDifficulty = (value) => {
-    setDifficulty(value);
-
-    // Store the difficulty inside chrome storage
-    chrome.storage.local.set({ difficulty: value });
-  };
 
   const handleSetcategory = (value) => {
     console.log('value', value);
@@ -203,25 +194,6 @@ const Popup = () => {
                 </components.SingleValue>
               )}
               onChange={(selected) => handleSetcategory(selected.value)}
-            />
-            <SelectInput
-              value={isCheckboxChecked(DifficultyOptions, difficulty)}
-              options={DifficultyOptions}
-              label="Difficulty"
-              SingleValue={({ children, ...props }) => (
-                <components.SingleValue {...props}>
-                  <div
-                    className="flex items-center "
-                    style={{
-                      columnGap: '8px',
-                    }}
-                  >
-                    <BarChartSVG />
-                    {children}
-                  </div>
-                </components.SingleValue>
-              )}
-              onChange={(selected) => handleSetDifficulty(selected.value)}
             />
 
             <div>
