@@ -38,4 +38,4 @@ If you have any questions about this Privacy Policy, please contact us me at [X.
 
 ---
 
-**Last Updated:** [Date]
+**Last Updated:** 19.05.2024
