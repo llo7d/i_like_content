@@ -4,7 +4,7 @@ https://developer.chrome.com/docs/webstore/publish
 
 - Check for default state question & difficulty ( )
 
-- Launch the mf ( )
+- Launch the mf ( X )
 
 
 ------ FINISH ASAP & Work on Roby Landing page ------
