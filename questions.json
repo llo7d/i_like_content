@@ -341,7 +341,7 @@
             ],
             "question": {
                 "text": "What would be the result of the code below?",
-                "codeSnippet": console.log(console.log(3+2+"7");
+                "codeSnippet": console.log(console.log(3+2+"7"));
             },
             "correctAnswer": "57"
         },
