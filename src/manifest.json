@@ -11,11 +11,8 @@
     "default_icon": "icon-34.png"
   },
   "permissions": [
-    "webRequest",
     "storage",
-    "webNavigation",
-    "tabs",
-    "activeTab"
+    "tabs"
   ],
   "icons": {
     "128": "icon-128.png"
