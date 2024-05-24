@@ -1,12 +1,16 @@
 <div align="center">
-  <h3 align="center">I like content, but</h3>
+  <h3 align="center">I like content</h3>
 
   <p align="center">
-    A chrome plugin that helps you watch content and learn something while your doing it
+    A chrome plugin that helps you watch content and learn something while your doing it, kinda..
     <br />
-    <a href="https://youtu.be/HxFhqbqVTyE"> See how the plugin works here </a>
+        ·
     <br />
-    ·
+    <a href="https://chromewebstore.google.com/detail/i-like-content/mlgeihihfpkikbmnpagmmjlnbmgjacom?hl=en-GB&authuser=1">Get it now! (Free)</a>
+    <br />
+      ·
+    <br />
+    <a href="https://youtu.be/HxFhqbqVTyE"> See how it works </a>
     <br />
     <a href="https://youtu.be/OJVOkqCfaKw">See how I made it (Episode 1) </a>
   </p>
@@ -33,6 +37,8 @@ However, the other hard addictions are not.
   TikTok? false
   Twitch? false
   ```
+
+   <a href="https://chromewebstore.google.com/detail/i-like-content/mlgeihihfpkikbmnpagmmjlnbmgjacom?hl=en-GB&authuser=1">You can get the plugin here.</a>
 
 <!-- GETTING STARTED -->
 ## Help improve the plugin
