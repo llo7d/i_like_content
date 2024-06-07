@@ -12,8 +12,6 @@
     <br />
     <a href="https://youtu.be/HxFhqbqVTyE"> See how it works </a>
     <br />
-    <a href="https://youtu.be/OJVOkqCfaKw">How I made it Episode 1 </a>
-    <a href="https://youtu.be/OJVOkqCfaKw">How I made it Episode 2 (Comming soon)</a>
   </p>
 </div>
 
