@@ -6,7 +6,7 @@
     <br />
         ·
     <br />
-    <a href="https://chromewebstore.google.com/detail/i-like-content/mlgeihihfpkikbmnpagmmjlnbmgjacom?hl=en-GB&authuser=1">Get it now! (Free)</a>
+    <a href="https://chromewebstore.google.com/detail/i-like-content/mlgeihihfpkikbmnpagmmjlnbmgjacom?hl=en-GB&authuser=1">Get it now!</a>
     <br />
       ·
     <br />
