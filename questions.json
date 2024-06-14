@@ -383,8 +383,8 @@
             },
             "correctAnswer": "Bubble sort"
         },
-        "category": "Python",
-        "difficulty": "hard",
+        "category": "Algorithms",
+        "difficulty": "medium",
         "your_name": "Brandonbr1",
         "your_github_url": "github.com/Brandonbr1"
     },
