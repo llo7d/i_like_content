@@ -15,8 +15,8 @@
         },
         "correctAnswer": "<App />"
     },
-    "category": "react", // technical, python, react, javascript, typescript
-    "difficulty": "easy", // easy, hard
+    "category": "react", // technical, python, react, javascript, typescript, algorithms
+    "difficulty": "easy", // easy, medium, hard
     "your_name": "looyd", // Your name dud, Josh, Peter etc..
     "your_github_url": "github.com/llo7d" // Link to your github
 }
@@ -349,5 +349,43 @@
         "difficulty": "easy",
         "your_name": "Daniel-Sean",
         "your_github_url": "github.com/DSeanHD"
+    },
+    {
+        "question": {
+            "options": [
+                "by debouncing the function",
+                "using a timeout",
+                "implementing a custom hook with a useMemo hook",
+                "using a promise"
+            ],
+            "question": {
+                "text": "How can you prevent a function from being called multiple times in a short period of time in React?",
+                "codeSnippet": null
+            },
+            "correctAnswer": "by debouncing the function"
+        },
+        "category": "React",
+        "difficulty": "easy",
+        "your_name": "SlowMoschen",
+        "your_github_url": "github.com/SlowMoschen"
+    },
+    {
+        "question": {
+            "options": [
+                "Bubble sort",
+                "Quick Sort",
+                "Merge Sort",
+                "Fibonacci Sequence"
+            ],
+            "question": {
+                "text": "What algorithm is described in the following? 'Checks a list of elements, comparing each adjacent elements from lowest and highest, and swapping them if needed.' ",
+                "codeSnippet": null
+            },
+            "correctAnswer": "Bubble sort"
+        },
+        "category": "Python",
+        "difficulty": "hard",
+        "your_name": "Brandonbr1",
+        "your_github_url": "github.com/Brandonbr1"
     },
 ]
