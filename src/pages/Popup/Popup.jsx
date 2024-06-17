@@ -16,7 +16,6 @@ import { components } from 'react-select';
 
 const DifficultyOptions = [
   { value: 'easy', label: 'Easy' },
-  { value: 'medium', label: 'Medium' },
   { value: 'hard', label: 'Hard' },
 ];
 
@@ -26,7 +25,6 @@ const CategoryOptions = [
   { value: 'python', label: 'Python' },
   { value: 'javascript', label: 'Javascript' },
   { value: 'typescript', label: 'Typescript' },
-  { value: 'algorithms ', label: 'Algorithms' },
 ];
 
 function isCheckboxChecked(list = [], value) {
