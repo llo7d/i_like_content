@@ -397,7 +397,7 @@
                 "Sorting Algorithm"
             ],
             "question": {
-                "text": "What algorithm is described in the following? 'Bruteforcing or searching data to find the best potential candiate for a solution; incrementally building the candiate if deemed fit and if not them dumping it.  ' ",
+                "text": "What algorithm is described in the following? 'Brute forcing or searching data to find the best potential candidate for a solution. Incrementally building the candidate if deemed fit and if not them dumping it.  ' ",
                 "codeSnippet": null;
             },
             "correctAnswer": "Backtracking Algorithm"
