@@ -388,4 +388,23 @@
         "your_name": "Brandonbr1",
         "your_github_url": "github.com/Brandonbr1"
     },
+     {
+        "question": {
+            "options": [
+                "Searching Algorithm ",
+                "Backtracking Algorithm",
+                "Graph Algorithm",
+                "Sorting Algorithm"
+            ],
+            "question": {
+                "text": "What algorithm is described in the following? 'Bruteforcing or searching data to find the best potential candiate for a solution; incrementally building the candiate if deemed fit and if not them dumping it.  ' ",
+                "codeSnippet": null;
+            },
+            "correctAnswer": "Backtracking Algorithm"
+        },
+        "category": "Algorithms",
+        "difficulty": "hard",
+        "your_name": "Brandonbr1",
+        "your_github_url": "github.com/Brandonbr1"
+    },
 ]
