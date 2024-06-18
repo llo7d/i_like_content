@@ -1,3 +1,4 @@
+
 // 
 // example of a json object, please include code snippets as they look cool & make sure to include your name & github
 //
@@ -24,6 +25,7 @@
 // 
 // Add your questions below:
 //
+
 
 [
     {
@@ -259,15 +261,15 @@
             "options":[
                 "A function that is passed as an argument to another function",
                 "A function that is called inside another function",
-                "A function which is called by clicking a button"
-                "A function that is called after another function",
+                "A function which is called by clicking a button",
+                "A function that is called after another function"
             ],
   
             "question":{
                 "text":"What is a callback function in JavaScript?",
                 "codeSnippet": null
             },
-            "correctAnswer":"A function that is passed as an argument to another function",
+            "correctAnswer":"A function that is passed as an argument to another function"
         },
         "category":"JavaScript",
         "difficulty":"easy",
@@ -341,7 +343,7 @@
             ],
             "question": {
                 "text": "What would be the result of the code below?",
-                "codeSnippet": console.log(console.log(3+2+"7"));
+                "codeSnippet": "console.log(console.log(3+2+'7'));"
             },
             "correctAnswer": "57"
         },
@@ -350,4 +352,187 @@
         "your_name": "Daniel-Sean",
         "your_github_url": "github.com/DSeanHD"
     },
+
+
+
+        {
+          "question": {
+            "options": ["npm create vue@latest", "vue init", "npm install vue", "npx @vue/cli create"],
+            "question": {
+              "text": "What command is used to create a new Vue 3 project?",
+              "codeSnippet": null
+            },
+            "correctAnswer": "npm create vue@latest"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": ["<script setup>", "<script>", "<setup>", "<script scoped>"],
+            "question": {
+              "text": "Which tag is used for the Composition API in Vue 3?",
+              "codeSnippet": "<script setup> </script>"
+            },
+            "correctAnswer": "<script setup>"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": [
+              "A library for building user interfaces",
+              "A state management pattern and library",
+              "A progressive framework for building user interfaces",
+              "A module bundler"
+            ],
+            "question": {
+              "text": "What is Vue.js?",
+              "codeSnippet": null
+            },
+            "correctAnswer": "A progressive framework for building user interfaces"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": ["Evan You", "Brendan Eich", "Jordan Walke", "Dan Abramov"],
+            "question": {
+              "text": "Who created Vue.js?",
+              "codeSnippet": null
+            },
+            "correctAnswer": "Evan You"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": ["v-model", "v-bind", "v-for", "v-if"],
+            "question": {
+              "text": "Which directive is used for two-way data binding in Vue 3?",
+              "codeSnippet": "<input v-model='message'>"
+            },
+            "correctAnswer": "v-model"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": ["computed", "methods", "data", "ref"],
+            "question": {
+              "text": "Which option in Vue 3's Composition API is used to create a reactive reference to a value?",
+              "codeSnippet": "const count = ref(0);"
+            },
+            "correctAnswer": "ref"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": [
+              "import { ref, reactive } from 'vue';",
+              "import { ref, computed } from 'vue';",
+              "import { ref, watch } from 'vue';",
+              "import { ref, setup } from 'vue';"
+            ],
+            "question": {
+              "text": "How do you import 'ref' and 'reactive' from Vue 3?",
+              "codeSnippet": "import { ref, reactive } from 'vue';"
+            },
+            "correctAnswer": "import { ref, reactive } from 'vue';"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": ["reactive", "ref", "computed", "watchEffect"],
+            "question": {
+              "text": "Which function in Vue 3 is used to create a reactive object?",
+              "codeSnippet": "const state = reactive({ count: 0 });"
+            },
+            "correctAnswer": "reactive"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": ["v-on", "@click", "v-bind", "v-model"],
+            "question": {
+              "text": "Which directive is used to bind an event listener in Vue 3?",
+              "codeSnippet": "<button @click='increment'>Increment</button>"
+            },
+            "correctAnswer": "@click"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": ["v-for", "v-if", "v-model", "v-bind"],
+            "question": {
+              "text": "Which directive is used to conditionally render an element in Vue 3?",
+              "codeSnippet": "<div v-if='isVisible'>Visible</div>"
+            },
+            "correctAnswer": "v-if"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": ["v-for", "v-if", "v-model", "v-bind"],
+            "question": {
+              "text": "Which directive is used to bind an attribute in Vue 3?",
+              "codeSnippet": "<img v-bind:src='image'> or the shorthand <img :src='image'>"
+            },
+            "correctAnswer": "v-bind"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        },
+        {
+          "question": {
+            "options": ["v-for", "v-if", "v-model", "v-bind"],
+            "question": {
+              "text": "Which directive is used to loop through an array in Vue 3?",
+              "codeSnippet": "<div v-for='item in items'>{{ item }}</div>"
+            },
+            "correctAnswer": "v-for"
+          },
+          "category": "Vue",
+          "difficulty": "easy",
+          "your_name": "TorMagne",
+          "your_github_url": "https://github.com/TorMagne"
+        }
+
+      
 ]
