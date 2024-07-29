@@ -532,7 +532,85 @@
           "difficulty": "easy",
           "your_name": "TorMagne",
           "your_github_url": "https://github.com/TorMagne"
-        }
+        },
+        {
+          "question": {
+              "options": [
+                  "def __init__(self): pass",
+                  "def __new__(cls): pass",
+                  "def __start__(self): pass",
+                  "def __create__(cls): pass"
+              ],
+              "question": {
+                  "text": "Which method is used to initialize an object in a Python class?",
+                  "codeSnippet": "class MyClass:\n    # Insert correct method here\n    pass"
+              },
+              "correctAnswer": "def __init__(self): pass"
+          },
+          "category": "python",
+          "difficulty": "medium",
+          "your_name": "",
+          "your_github_url": ""
+        },
+        {
+          "question": {
+              "options": [
+                  "Garbage Collection",
+                  "Reference Counting",
+                  "Mark-and-Sweep",
+                  "Generational Garbage Collection"
+              ],
+              "question": {
+                  "text": "What is the primary garbage collection mechanism used by CPython?",
+                  "codeSnippet": "import sys\nprint(sys.getrefcount(object()))  # Demonstrates reference counting"
+              },
+              "correctAnswer": "Reference Counting"
+          },
+          "category": "python",
+          "difficulty": "hard",
+          "your_name": "",
+          "your_github_url": ""
+        },
+        {
+          "question": {
+              "options": [
+                  "8",
+                  "16",
+                  "32",
+                  "64"
+              ],
+              "question": {
+                  "text": "What is the size (in bits) of a byte in most modern computer architectures?",
+                  "codeSnippet": "// C code snippet\nunsigned char byte;\nprintf(\"Size of byte: %zu bits\\n\", sizeof(byte) * 8);"
+              },
+              "correctAnswer": "8"
+          },
+          "category": "low-level programming",
+          "difficulty": "easy",
+          "your_name": "",
+          "your_github_url": ""
+        },
+        {
+          "question": {
+              "options": [
+                  "Opcode",
+                  "Operand",
+                  "Instruction Pointer",
+                  "Stack Pointer"
+              ],
+              "question": {
+                  "text": "In assembly language, what term is used to refer to the part of an instruction that specifies the operation to be performed?",
+                  "codeSnippet": "; Assembly code snippet\nMOV AX, BX  ; MOV is the opcode, AX and BX are operands"
+              },
+              "correctAnswer": "Opcode"
+          },
+          "category": "low-level programming",
+          "difficulty": "medium",
+          "your_name": "",
+          "your_github_url": ""
+        },
+
+
 
       
 ]
